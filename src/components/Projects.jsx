@@ -1,33 +1,44 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import app from '@/assets/app.png'
+import Image from 'next/image';
 
 const Projects = () => {
+  console.log(app)
   const projects = [
     {
-      title: 'GameHub Pro',
-      description: 'The ultimate live streaming platform for gamers to connect and compete globally.',
-      tags: ['React', 'Tailwind', 'Socket.io'],
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPGXCmaeby6aXkKBI8clU57N2sNRsPcnkxE5qfjvbRVpOcQEd_WQsV8KkKecUVq2HxbRXokpvpvtmP_cHrxHsfRjDbd8SqhfvI7Bx-AK_6ITUxywsQyWmwPSNJ8iqLEKSv46XeJvDBnGmFO-XWv2u2gsK5LkQE_Ho06pU7U9iiZVn1sJTLeLfaYmy0JJXB0wKgXLmTSecjk2s0MiRNrpjtf758jTte2mPeabv4QMh3AXI6_HLaDBvTUZ-E6prE6DqytnsnelRF2vz7',
-      demo: '#',
-      code: '#'
+      title: 'Online-Book-Borrowing-Platform',
+      description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
+      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/PZJVtBvp/Screenshot-2026-05-01-212108.png',
+      demo: 'https://book-library-two-kohl.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
     },
     {
-      title: 'DocSync AI',
-      description: 'Real-time collaborative document editor with AI-powered suggestions and dark mode.',
-      tags: ['Node.js', 'MongoDB', 'Next.js'],
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAqhUxWFrpy2bYxJ9Yr80_hhikLZnK9VDZVwtKlciyn6_gXjODnRmxdTykSiyz3GnQ_7lZ0gvv9FX4F39D2UcyovfR7aprtqaTZ3ACPsPxYzNmSqGBVahHCiK9dTQxQevQuvvrgDRPkCRoaUDQuj_QbYqthLdCD3LwBVWGFo3zdE5CYyIB5gdTdhV97Ik4U8AfQxOrLjWDcuZUFqKvYC-lnYKbar2zRh4jALTE5vI-L3Ki-WN8Tno2Gx1BPTRmja1ZS3ajtfSVQ-DDN',
-      demo: '#',
-      code: '#'
+      title: 'News web application',
+      description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
+      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/SDvmzB7s/Screenshot-2026-05-01-211731.png',
+      demo: 'https://dragon-news-two-gold.vercel.app/news/01',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
     },
     {
-      title: 'CloudVault',
-      description: 'A secure cloud storage solution with folder management and instant file sharing features.',
-      tags: ['Firebase', 'React', 'S3'],
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDwiPySpLVfm1peKxg67ysscsortHTQUCcI4xgVrDbX5EiWD6EwKMSXq-BTYh9uIHqmAWkp7q7Vr_uN5_azaZGmvHkHsHBsSLZ03yq_b2ntH2FGIyytdZcbgS9VYfVTGm9y2O_9saGVvgs22EdajMD1i3D4di8FQ333foI4Tgr8wVfrt_kP-azhUiSjjLM0zchoFfP8j1GoOvxGPSRdsE73w8dpuYtxyP0O0K0Y5U2ly1-hgsFkU73Q2ZqQRTEgtgMRrJ-sHuLIglw7',
-      demo: '#',
-      code: '#'
-    }
+      title: 'Application stor',
+      description: 'a simple application stor web application',
+      tags: ['React Router', 'React', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/xtvLVCXD/Screenshot-2026-05-01-201825.png',
+      demo: 'https://application-stor-abdur-rahim.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
+    },
+    {
+      title: 'KeenKeeper',
+      description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
+      tags: ['Next JS', 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
+      image: 'https://i.ibb.co.com/cKw1M3qN/Screenshot-2026-05-01-212807.png',
+      demo: 'https://communication-web-application.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
+    },
   ];
 
   return (
@@ -39,7 +50,8 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Projects</h2>
+          <img src={app} alt="" />
+          <h2 className="text-4xl font-bold light:text-black dark:text-white">Projects</h2>
           <p className="text-gray-500 dark:text-gray-400 mt-2">Most Recent Work</p>
         </motion.div>
 

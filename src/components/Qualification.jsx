@@ -41,8 +41,8 @@ const Qualification = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Qualification</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">My journey</p>
+          <h2 className="text-4xl font-bold light:text-black dark:text-white">Qualification</h2>
+          <p className="light:text-black dark:text-white mt-2">My journey</p>
         </motion.div>
 
         <motion.div 
@@ -73,7 +73,7 @@ const Qualification = () => {
               >
                 {/* Left Side */}
                 <div className={index % 2 === 0 ? "text-right" : "text-right opacity-0 pointer-events-none"}>
-                  <h3 className="font-bold text-lg text-gray-900 dark:text-white">{item.title}</h3>
+                  <h3 className="font-bold text-lg dark:text-white light:text-black">{item.title}</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{item.company}</p>
                   <p className="text-xs text-brand-orange font-semibold mt-1">{item.period}</p>
                   {item.details && <p className="text-xs text-green-600 dark:text-green-400 font-bold mt-1">{item.details}</p>}
@@ -86,7 +86,7 @@ const Qualification = () => {
                 
                 {/* Right Side */}
                 <div className={index % 2 !== 0 ? "pl-8 text-left" : "pl-8 opacity-0 pointer-events-none"}>
-                  <h3 className="font-bold text-lg text-gray-900 dark:text-white">{item.title}</h3>
+                  <h3 className="font-bold text-lg light:text-black dark:text-white">{item.title}</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{item.company}</p>
                   <p className="text-xs text-brand-orange font-semibold mt-1">{item.period}</p>
                   {item.details && <p className="text-xs text-green-600 dark:text-green-400 font-bold mt-1">{item.details}</p>}
