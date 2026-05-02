@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Jensen Omega | Software Developer Portfolio",
-  description: "Professional portfolio of Jensen Omega, a Software Developer specialized in building robust and scalable web applications.",
+  title: "Abdur Rahim | WEB Developer Portfolio",
+  description: "Professional portfolio of Abdur Rahim Bin Bakkar, a web developer",
 };
 
 export default function RootLayout({ children }) {

@@ -109,7 +109,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-4 text-base font-medium text-text-secondary hover:text-brand-orange dark:hover:text-brand-orange hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-xl transition-all"
+              className="block px-3 py-4 text-base dark:text-white light:text-black font-medium text-text-secondary hover:text-brand-orange dark:hover:text-brand-orange hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-xl transition-all"
             >
               {link.name}
             </a>

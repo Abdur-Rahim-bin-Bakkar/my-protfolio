@@ -102,7 +102,7 @@ const Skills = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
             <h3 className="text-2xl font-bold mb-10 text-center text-text-primary flex items-center justify-center gap-3">
               <span className="w-8 h-1 bg-brand-orange rounded-full"></span>
-              <span className='light:text-black dark:text-white'>Frontend Developer</span>
+              <span className='!text-black'>Frontend Developer</span>
               <span className="w-8 h-1 bg-brand-orange rounded-full"></span>
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
@@ -114,7 +114,7 @@ const Skills = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold dark:text-white">{skill.name}</p>
+                    <p className="font-bold text-black">{skill.name}</p>
                     <p className="text-xs text-text-muted font-medium uppercase tracking-wider">{skill.level}</p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ const Skills = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-text-primary">{skill.name}</p>
+                    <p className="font-bold  text-black ">{skill.name}</p>
                     <p className="text-xs text-text-muted font-medium uppercase tracking-wider">{skill.level}</p>
                   </div>
                 </div>
