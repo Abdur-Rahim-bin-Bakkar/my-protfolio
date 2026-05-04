@@ -22,15 +22,16 @@ const Navbar = () => {
   if (!mounted) return null;
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contacts', href: '#contact' },
-    { name: 'Social', href: '#footer' },
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/#about' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Contacts', href: '/#contact' },
+    { name: 'Social', href: '/#footer' },
+    { name: 'Qualifications', href: '/#qualifications' },
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-white/90 dark:bg-brand-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 h-19 items-center transition-all duration-300 'bg-white/90 dark:bg-brand-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800' : 'bg-transparent`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0">

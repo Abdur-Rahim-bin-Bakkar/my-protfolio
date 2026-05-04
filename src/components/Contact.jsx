@@ -63,7 +63,7 @@ const Contact = () => {
                 </svg>
               </div>
               <h4 className="font-bold text-text-primary">LinkedIn</h4>
-              <p className="text-sm text-text-secondary">jensen-omega-dev</p>
+              <p className="text-sm text-text-secondary">Abdur Rahim Bin Bakkar</p>
               <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="text-xs font-bold text-text-muted block pt-2">Write me →</a>
             </div>
           </motion.div>

@@ -5,6 +5,8 @@ import image from '@/assets/me.png'
 import Image from 'next/image';
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkdin.png'
+import HeroTyping from './HeroTyping';
+import { FaFacebook, FaGithub } from 'react-icons/fa';
 
 const Hero = () => {
   const technologies = [
@@ -34,9 +36,10 @@ const Hero = () => {
             ></motion.div>
           </div>
           <h1 className="text-2xl  md:text-5xl font-bold leading-tight text-text-primary">
-            I'm Abdur Rahim bin bakar<br />
-            <span className="text-text-secondary">Web Developer</span>
+            I am Abdur Rahim bin bakar<br />
+           
           </h1>
+          <HeroTyping/>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,13 +52,16 @@ const Hero = () => {
             <a href="#about" className="border border-gray-300 dark:border-gray-600 hover:border-brand-orange dark:hover:border-brand-orange px-8 py-3 rounded-lg font-semibold transition-all text-text-secondary">
               My resume
             </a>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm border overflow-hidden hover:scale-110 duration-700">
                 <Image src={linkedin} alt='linkedin logo' className='hover:scale-110'></Image>
               </a>
 
-              <a href="https://github.com/Abdur-Rahim-bin-Bakkar" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm hover:scale-110 duration-700">
-                <Image src={github} alt='linkedin logo' className='hover:scale-110'></Image>
+              <a href="https://github.com/Abdur-Rahim-bin-Bakkar" >
+                <FaGithub className='text-4xl hover:scale-110 duration-700'/>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61582681106407" >
+                <FaFacebook className='text-4xl hover:scale-110 duration-700'/>
               </a>
             </div>
           </motion.div>

@@ -4,12 +4,13 @@ import { motion } from 'framer-motion';
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkdin.png'
 import Image from 'next/image';
+import { FaFacebook, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer id='footer' className="bg-background border-t border-gray-200 dark:border-gray-800 py-16 px-4 mx-auto">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-        <motion.div 
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-start">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -18,8 +19,8 @@ const Footer = () => {
           <h2 className="text-2xl font-bold tracking-tight text-text-primary">Abdur <span className="text-brand-orange">Rahim</span></h2>
           <p className="text-text-secondary text-sm max-w-xs">Building professional web applications with modern technologies and a focus on user experience.</p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,8 +44,8 @@ const Footer = () => {
             </ul>
           </div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -52,18 +53,30 @@ const Footer = () => {
           className="space-y-6"
         >
           <h4 className="font-bold text-text-primary">Connect With Me</h4>
-           <div className="flex gap-4">
-                        <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm border overflow-hidden hover:scale-110 duration-700">
-                          <Image src={linkedin} alt='linkedin logo' className='hover:scale-110'></Image>
-                        </a>
-          
-                        <a href="https://github.com/Abdur-Rahim-bin-Bakkar" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm hover:scale-110 duration-700">
-                          <Image src={github} alt='linkedin logo' className='hover:scale-110'></Image>
-                        </a>
-                      </div>
+          <div className="flex gap-4 flex-col justify-center items-center md:items-start">
+            <div className="flex gap-4 items-center">
+                          <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm border overflow-hidden hover:scale-110 duration-700">
+                            <Image src={linkedin} alt='linkedin logo' className='hover:scale-110'></Image>
+                          </a>
+            
+                          <a href="https://github.com/Abdur-Rahim-bin-Bakkar" >
+                            <FaGithub className='text-4xl hover:scale-110 duration-700'/>
+                          </a>
+                          <a href="https://www.facebook.com/profile.php?id=61582681106407" >
+                            <FaFacebook className='text-4xl hover:scale-110 duration-700'/>
+                          </a>
+                        </div>
+            <br />
+            <div className='font-bold text-lg space-y-3'>
+
+              <p>Phone Number: 01873135444</p>
+              <p>Whats App: 01873135444</p>
+              <p>Email: webdesignrahim4061@gmail.com</p>
+            </div>
+          </div>
         </motion.div>
       </div>
-     
+
     </footer>
   );
 };

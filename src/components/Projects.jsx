@@ -8,6 +8,7 @@ const Projects = () => {
   console.log(app)
   const projects = [
     {
+      id:1,
       title: 'Online-Book-Borrowing-Platform',
       description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
       tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
@@ -16,6 +17,7 @@ const Projects = () => {
       code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
     },
     {
+      id:2,
       title: 'News web application',
       description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
       tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
@@ -24,6 +26,7 @@ const Projects = () => {
       code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
     },
     {
+      id:3,
       title: 'Application stor',
       description: 'a simple application stor web application',
       tags: ['React Router', 'React', "HTML", "CSS", "Java Script",'Tailwind'],
@@ -32,6 +35,7 @@ const Projects = () => {
       code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
     },
     {
+      id:4,
       title: 'KeenKeeper',
       description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
       tags: ['Next JS', 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
@@ -87,6 +91,9 @@ const Projects = () => {
                   </a>
                   <a href={project.code} className="text-xs font-bold text-gray-500 dark:text-gray-400 flex items-center gap-1 hover:underline">
                     Code <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </a>
+                  <a href={`/${project.id}`} className="text-xs font-bold text-gray-500 dark:text-gray-400 flex items-center gap-1 hover:underline">
+                    View Details <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </a>
                 </div>
               </div>

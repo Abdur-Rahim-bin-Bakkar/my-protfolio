@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      
       <main className='max-w-11/12 mx-auto'>
         <Hero />
         <About />
@@ -19,7 +19,7 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
-      <Footer />
+     
     </>
   );
 }
