@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useTheme } from "next-themes";
-import logo from '@/assets/logo.png'
+import logo from '@/assets/mylogo.png'
 import Image from 'next/image';
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <a href="#" className="text-xl font-bold tracking-tight text-text-primary">
               
-              <Image src={logo} alt='logo' width={40} height={40} className='w-30'></Image>
+              <img src={'https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png'} alt='logo' width={40} height={40} className='w-14 rounded-full  shadow hover:shadow-orange-500 hover:scale-120 duration-700 dark:border border-orange-500'></img>
             </a>
           </div>
           

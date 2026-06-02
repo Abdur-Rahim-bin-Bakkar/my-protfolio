@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkdin.png'
 import Image from 'next/image';
-import { FaFacebook, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -55,17 +55,18 @@ const Footer = () => {
           <h4 className="font-bold text-text-primary">Connect With Me</h4>
           <div className="flex gap-4 flex-col justify-center items-center md:items-start">
             <div className="flex gap-4 items-center">
-                          <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm border overflow-hidden hover:scale-110 duration-700">
-                            <Image src={linkedin} alt='linkedin logo' className='hover:scale-110'></Image>
-                          </a>
-            
-                          <a href="https://github.com/Abdur-Rahim-bin-Bakkar" >
-                            <FaGithub className='text-4xl hover:scale-110 duration-700'/>
-                          </a>
-                          <a href="https://www.facebook.com/profile.php?id=61582681106407" >
-                            <FaFacebook className='text-4xl hover:scale-110 duration-700'/>
-                          </a>
-                        </div>
+              <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" target="_blank">
+
+                <FaLinkedin className='text-4xl hover:scale-110 duration-700 hover:text-orange-500' />
+              </a>
+
+              <a href="https://github.com/Abdur-Rahim-bin-Bakkar" target="_blank">
+                <FaGithub className='text-4xl hover:scale-110 duration-700 hover:text-orange-500' />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61582681106407" target="_blank">
+                <FaFacebook className='text-4xl hover:scale-110 duration-700 hover:text-orange-500' />
+              </a>
+            </div>
             <br />
             <div className='font-bold text-lg space-y-3'>
 

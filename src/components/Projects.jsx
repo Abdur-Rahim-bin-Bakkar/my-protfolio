@@ -43,6 +43,15 @@ const Projects = () => {
       demo: 'https://communication-web-application.vercel.app/',
       code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
     },
+    {
+      id:5,
+      title: 'DigTools',
+      description: 'Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today. Explore Products',
+      tags: [ 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
+      image: 'https://i.ibb.co.com/1tXHvTwP/Screenshot-2026-05-04-220156.png',
+      demo: 'https://digital-tools-shopp.netlify.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/DigiTools-Platform'
+    },
   ];
 
   return (

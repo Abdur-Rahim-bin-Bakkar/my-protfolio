@@ -6,7 +6,7 @@ import Image from 'next/image';
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkdin.png'
 import HeroTyping from './HeroTyping';
-import { FaFacebook, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Hero = () => {
   const technologies = [
@@ -36,7 +36,7 @@ const Hero = () => {
             ></motion.div>
           </div>
           <h1 className="text-2xl  md:text-5xl font-bold leading-tight text-text-primary">
-            I am Abdur Rahim bin bakar<br />
+            I am Abdur Rahim bin bakkar<br />
            
           </h1>
           <HeroTyping/>
@@ -53,15 +53,16 @@ const Hero = () => {
               My resume
             </a>
             <div className="flex gap-4 items-center">
-              <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-text-secondary hover:bg-brand-orange hover:text-white transition-all shadow-sm border overflow-hidden hover:scale-110 duration-700">
-                <Image src={linkedin} alt='linkedin logo' className='hover:scale-110'></Image>
+              <a href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" target="_blank">
+                
+                <FaLinkedin  className='text-4xl hover:scale-110 duration-700 hover:text-orange-500'/>
               </a>
 
-              <a href="https://github.com/Abdur-Rahim-bin-Bakkar" >
-                <FaGithub className='text-4xl hover:scale-110 duration-700'/>
+              <a href="https://github.com/Abdur-Rahim-bin-Bakkar" target="_blank">
+                <FaGithub className='text-4xl hover:scale-110 duration-700 hover:text-orange-500'/>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61582681106407" >
-                <FaFacebook className='text-4xl hover:scale-110 duration-700'/>
+              <a href="https://www.facebook.com/profile.php?id=61582681106407" target="_blank">
+                <FaFacebook className='text-4xl hover:scale-110 duration-700 hover:text-orange-500'/>
               </a>
             </div>
           </motion.div>
@@ -79,7 +80,7 @@ const Hero = () => {
             <div className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-brand-dark hero-glow bg-gray-200 dark:bg-gray-800">
               <Image
                 src={image}
-                alt="Jensen Profile"
+                alt="Abdur Rahim Profile"
                 className="w-full h-full object-cover"
               />
 

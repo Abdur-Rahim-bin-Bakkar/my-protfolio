@@ -3,44 +3,53 @@ import React from 'react';
 
 const ProjectDetailsPage = async ({ params }) => {
     const { id } = await params
-    const projects = [
-        {
-            id: 1,
-            title: 'Online-Book-Borrowing-Platform',
-            description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
-            tags: ['Next JS', 'MongoDb', 'Better Auth', "HTML", "CSS", "Java Script", 'Tailwind'],
-            image: 'https://i.ibb.co.com/PZJVtBvp/Screenshot-2026-05-01-212108.png',
-            demo: 'https://book-library-two-kohl.vercel.app/',
-            code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
-        },
-        {
-            id: 2,
-            title: 'News web application',
-            description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
-            tags: ['Next JS', 'MongoDb', 'Better Auth', "HTML", "CSS", "Java Script", 'Tailwind'],
-            image: 'https://i.ibb.co.com/SDvmzB7s/Screenshot-2026-05-01-211731.png',
-            demo: 'https://dragon-news-two-gold.vercel.app/news/01',
-            code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
-        },
-        {
-            id: 3,
-            title: 'Application stor',
-            description: 'a simple application stor web application',
-            tags: ['React Router', 'React', "HTML", "CSS", "Java Script", 'Tailwind'],
-            image: 'https://i.ibb.co.com/xtvLVCXD/Screenshot-2026-05-01-201825.png',
-            demo: 'https://application-stor-abdur-rahim.vercel.app/',
-            code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
-        },
-        {
-            id: 4,
-            title: 'KeenKeeper',
-            description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
-            tags: ['Next JS', 'React', "HTML", "CSS", "Java Script", 'Tailwind', 'Daisy UI'],
-            image: 'https://i.ibb.co.com/cKw1M3qN/Screenshot-2026-05-01-212807.png',
-            demo: 'https://communication-web-application.vercel.app/',
-            code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
-        },
-    ];
+  const projects = [
+    {
+      id:1,
+      title: 'Online-Book-Borrowing-Platform',
+      description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
+      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/PZJVtBvp/Screenshot-2026-05-01-212108.png',
+      demo: 'https://book-library-two-kohl.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
+    },
+    {
+      id:2,
+      title: 'News web application',
+      description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
+      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/SDvmzB7s/Screenshot-2026-05-01-211731.png',
+      demo: 'https://dragon-news-two-gold.vercel.app/news/01',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
+    },
+    {
+      id:3,
+      title: 'Application stor',
+      description: 'a simple application stor web application',
+      tags: ['React Router', 'React', "HTML", "CSS", "Java Script",'Tailwind'],
+      image: 'https://i.ibb.co.com/xtvLVCXD/Screenshot-2026-05-01-201825.png',
+      demo: 'https://application-stor-abdur-rahim.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
+    },
+    {
+      id:4,
+      title: 'KeenKeeper',
+      description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
+      tags: ['Next JS', 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
+      image: 'https://i.ibb.co.com/cKw1M3qN/Screenshot-2026-05-01-212807.png',
+      demo: 'https://communication-web-application.vercel.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
+    },
+    {
+      id:5,
+      title: 'DigTools',
+      description: 'Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today. Explore Products',
+      tags: [ 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
+      image: 'https://i.ibb.co.com/1tXHvTwP/Screenshot-2026-05-04-220156.png',
+      demo: 'https://digital-tools-shopp.netlify.app/',
+      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/DigiTools-Platform'
+    },
+  ];
     const currentProject = projects.find(pro => pro.id == id)
     console.log(currentProject)
     return (
