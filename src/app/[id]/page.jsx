@@ -1,88 +1,141 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import clientPromise from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
+import { notFound } from "next/navigation";
 
 const ProjectDetailsPage = async ({ params }) => {
-    const { id } = await params
-  const projects = [
-    {
-      id:1,
-      title: 'Online-Book-Borrowing-Platform',
-      description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
-      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/PZJVtBvp/Screenshot-2026-05-01-212108.png',
-      demo: 'https://book-library-two-kohl.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
-    },
-    {
-      id:2,
-      title: 'News web application',
-      description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
-      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/SDvmzB7s/Screenshot-2026-05-01-211731.png',
-      demo: 'https://dragon-news-two-gold.vercel.app/news/01',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
-    },
-    {
-      id:3,
-      title: 'Application stor',
-      description: 'a simple application stor web application',
-      tags: ['React Router', 'React', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/xtvLVCXD/Screenshot-2026-05-01-201825.png',
-      demo: 'https://application-stor-abdur-rahim.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
-    },
-    {
-      id:4,
-      title: 'KeenKeeper',
-      description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
-      tags: ['Next JS', 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
-      image: 'https://i.ibb.co.com/cKw1M3qN/Screenshot-2026-05-01-212807.png',
-      demo: 'https://communication-web-application.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
-    },
-    {
-      id:5,
-      title: 'DigTools',
-      description: 'Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today. Explore Products',
-      tags: [ 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
-      image: 'https://i.ibb.co.com/1tXHvTwP/Screenshot-2026-05-04-220156.png',
-      demo: 'https://digital-tools-shopp.netlify.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/DigiTools-Platform'
-    },
-  ];
-    const currentProject = projects.find(pro => pro.id == id)
-    console.log(currentProject)
-    return (
-        <div className='max-w-11/12 mx-auto  pt-16'>
-            
+  const { id } = await params;
 
-            <div className="flex gap-5 flex-col md:flex-row mt-10">
-                <img
-                    src={currentProject.image}
-                    alt={currentProject.title}
-                    className="max-w-100 h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="p-6 space-y-4 flex-1">
-                    <h3 className="text-xl font-bold ">{currentProject.title}</h3>
-                    <p className="text-sm  dark:text-white">{currentProject.description}</p>
-                    <div className="flex gap-4 pt-2">
-                        <a href={currentProject.demo} className="text-xs font-bold text-brand-orange flex items-center gap-1 hover:underline">
-                            Demo <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        </a>
-                        <a href={currentProject.code} className="text-xs font-bold text-gray-500 dark:text-gray-400 flex items-center gap-1 hover:underline">
-                            Code <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        </a>
-                    </div>
-                    <div className="">
-                        <h1 className='font-bold mb-5'>Technology</h1>
-                        {currentProject.tags.map((tag) => (
-                            <span key={tag} className="text-[10px] uppercase font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-600 dark:text-gray-300 ml-4">{tag}</span>
-                        ))}
-                    </div>
-                </div>
+  // MongoDB Connection
+  const client = await clientPromise;
+  const db = client.db(process.env.DB_NAME);
+
+  // Get Single Project
+  const currentProject = await db.collection("projects").findOne({
+    _id: new ObjectId(id),
+  });
+
+  // If project not found
+  if (!currentProject) {
+    notFound();
+  }
+
+  return (
+    <section className="min-h-screen bg-gray-50 dark:bg-[#0B1120] py-16">
+      <div className="max-w-7xl mx-auto px-5">
+
+        {/* Back Button */}
+        <Link
+          href="/#projects"
+          className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:gap-3 transition-all mb-10"
+        >
+          ← Back to Projects
+        </Link>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+          {/* Image */}
+          <div className="overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl group">
+            <img
+              src={currentProject.image}
+              alt={currentProject.title}
+              className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Right Side */}
+          <div>
+
+            <span className="inline-block px-4 py-1 rounded-full bg-orange-100 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-4">
+              🚀 Featured Project
+            </span>
+
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-5">
+              {currentProject.title}
+            </h1>
+
+            <p className="text-lg leading-8 text-gray-600 dark:text-gray-300">
+              {currentProject.description}
+            </p>
+
+            {/* Technologies */}
+
+            <div className="mt-10">
+
+              <h2 className="text-xl font-bold dark:text-white mb-5">
+                Technologies Used
+              </h2>
+
+              <div className="flex flex-wrap gap-3">
+
+                {currentProject.tags?.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 text-orange-600 dark:text-orange-400 text-sm font-semibold"
+                  >
+                    {tag}
+                  </span>
+                ))}
+
+              </div>
+
             </div>
+
+            {/* Buttons */}
+
+            <div className="flex flex-wrap gap-5 mt-12">
+
+              <Link
+                href={currentProject.demo}
+                target="_blank"
+                className="px-8 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold transition"
+              >
+                🚀 Live Demo
+              </Link>
+
+              <Link
+                href={currentProject.code}
+                target="_blank"
+                className="px-8 py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-orange-500 hover:text-orange-500 transition font-semibold"
+              >
+                💻 Source Code
+              </Link>
+
+            </div>
+
+            {/* Information */}
+
+            <div className="grid md:grid-cols-2 gap-5 mt-12">
+
+              <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] p-6">
+                <h3 className="text-sm text-gray-500">
+                  Category
+                </h3>
+
+                <p className="text-xl font-bold mt-2 dark:text-white">
+                  Full Stack
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] p-6">
+                <h3 className="text-sm text-gray-500">
+                  Status
+                </h3>
+
+                <p className="text-xl font-bold mt-2 text-green-500">
+                  Completed
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
-    );
+
+      </div>
+    </section>
+  );
 };
 
 export default ProjectDetailsPage;

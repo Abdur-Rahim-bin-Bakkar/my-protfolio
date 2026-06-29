@@ -3,61 +3,71 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import app from '@/assets/app.png'
 import Image from 'next/image';
+// "use client";
+
+import { useEffect, useState } from "react";
+// import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Projects = () => {
-  console.log(app)
-  const projects = [
-    {
-      id:1,
-      title: 'Online-Book-Borrowing-Platform',
-      description: 'Online-Book-Borrowing-Platform, There have email password and google authentication system.',
-      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/PZJVtBvp/Screenshot-2026-05-01-212108.png',
-      demo: 'https://book-library-two-kohl.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/Online-Book-Borrowing-Platform-'
-    },
-    {
-      id:2,
-      title: 'News web application',
-      description: 'Real-time News Application, Journalism Without Fear or Favour There have email password and google authentication system.',
-      tags: ['Next JS', 'MongoDb','Better Auth', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/SDvmzB7s/Screenshot-2026-05-01-211731.png',
-      demo: 'https://dragon-news-two-gold.vercel.app/news/01',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/dragon-news-web-application'
-    },
-    {
-      id:3,
-      title: 'Application stor',
-      description: 'a simple application stor web application',
-      tags: ['React Router', 'React', "HTML", "CSS", "Java Script",'Tailwind'],
-      image: 'https://i.ibb.co.com/xtvLVCXD/Screenshot-2026-05-01-201825.png',
-      demo: 'https://application-stor-abdur-rahim.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/application-store'
-    },
-    {
-      id:4,
-      title: 'KeenKeeper',
-      description: 'KeenKeeper is a modern relationship management web app that helps users keep track of their friends, interactions, and connection status. It allows users to organize meaningful relationships, monitor engagement frequency, and ensure no important connection is neglected.',
-      tags: ['Next JS', 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
-      image: 'https://i.ibb.co.com/cKw1M3qN/Screenshot-2026-05-01-212807.png',
-      demo: 'https://communication-web-application.vercel.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/keen-keeper-application-with-next-js'
-    },
-    {
-      id:5,
-      title: 'DigTools',
-      description: 'Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today. Explore Products',
-      tags: [ 'React', "HTML", "CSS", "Java Script",'Tailwind','Daisy UI'],
-      image: 'https://i.ibb.co.com/1tXHvTwP/Screenshot-2026-05-04-220156.png',
-      demo: 'https://digital-tools-shopp.netlify.app/',
-      code: 'https://github.com/Abdur-Rahim-bin-Bakkar/DigiTools-Platform'
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalProjects, setTotalProjects] = useState(0);
+
+  const limit = 3;
+
+
+
+  useEffect(() => {
+    const getProjects = async () => {
+      setLoading(true);
+
+      const res = await fetch(
+        `/api/projects?page=${page}&limit=${limit}`
+      );
+
+      const data = await res.json();
+
+      setProjects(data.projects);
+      setTotalPages(data.totalPages);
+      setTotalProjects(data.totalProjects);
+
+      setLoading(false);
+    };
+
+    getProjects();
+  }, [page]);
+
+
 
   return (
     <section id="projects" className="py-24 bg-background px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-4xl font-bold">
+            Projects
+          </h2>
+
+          <p className="text-gray-500">
+            Showing{" "}
+            <span className="font-bold">
+              {(page - 1) * limit + 1}
+            </span>
+            -
+            <span className="font-bold">
+              {Math.min(page * limit, totalProjects)}
+            </span>{" "}
+            of{" "}
+            <span className="font-bold">
+              {totalProjects}
+            </span>{" "}
+            Projects
+          </p>
+        </div>
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -70,44 +80,127 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="bg-white dark:bg-brand-card rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 group hover:border-brand-orange/50 transition-all shadow-sm"
-            >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] uppercase font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-600 dark:text-gray-300">{tag}</span>
-                  ))}
-                </div>
-                <div className="flex gap-4 pt-2">
-                  <a href={project.demo} className="text-xs font-bold text-brand-orange flex items-center gap-1 hover:underline">
-                    Demo <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </a>
-                  <a href={project.code} className="text-xs font-bold text-gray-500 dark:text-gray-400 flex items-center gap-1 hover:underline">
-                    Code <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </a>
-                  <a href={`/${project.id}`} className="text-xs font-bold text-gray-500 dark:text-gray-400 flex items-center gap-1 hover:underline">
-                    View Details <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+           <motion.div
+  key={project._id || index}
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: index * 0.1 }}
+  whileHover={{ y: -12 }}
+  className="group relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
+>
+  {/* Image */}
+  <div className="relative h-56 overflow-hidden">
+    <img
+      src={project.image}
+      alt={project.title}
+      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+    {/* Badge */}
+    <span className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+      Featured
+    </span>
+  </div>
+
+  {/* Content */}
+  <div className="p-6">
+
+    <h3 className="mb-3 text-2xl font-bold text-gray-900 transition group-hover:text-orange-500 dark:text-white">
+      {project.title}
+    </h3>
+
+    <p className="mb-5 line-clamp-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
+      {project.description}
+    </p>
+
+    {/* Tags */}
+    <div className="mb-6 flex flex-wrap gap-2">
+      {project.tags.map((tag) => (
+        <span
+          key={tag}
+          className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600 dark:border-orange-500/30 dark:bg-orange-500/10 dark:text-orange-400"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {/* Buttons */}
+    <div className="grid grid-cols-3 gap-3">
+
+      <Link
+        href={project.demo}
+        target="_blank"
+        className="rounded-xl bg-orange-500 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-600"
+      >
+        🚀 Demo
+      </Link>
+
+      <Link
+        href={project.code}
+        target="_blank"
+        className="rounded-xl border border-gray-300 py-2 text-center text-sm font-semibold text-gray-700 transition hover:border-orange-500 hover:text-orange-500 dark:border-gray-700 dark:text-gray-300 dark:hover:border-orange-500 dark:hover:text-orange-400"
+      >
+        💻 Code
+      </Link>
+
+      <Link
+        href={`/${project._id}`}
+        className="rounded-xl border border-orange-500 py-2 text-center text-sm font-semibold text-orange-500 transition hover:bg-orange-500 hover:text-white"
+      >
+        Details →
+      </Link>
+
+    </div>
+
+  </div>
+
+  {/* Bottom Glow */}
+  <div className="absolute -bottom-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100"></div>
+</motion.div>
           ))}
+        </div>
+
+
+
+
+
+
+        <div className="flex justify-center gap-2 mt-12">
+
+          <button
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+            className="px-4 py-2 rounded-lg bg-gray-200 disabled:opacity-50"
+          >
+            Previous
+          </button>
+
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i + 1)}
+              className={`px-4 py-2 rounded-lg ${page === i + 1
+                ? "bg-orange-500 text-white"
+                : "bg-gray-200"
+                }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => setPage(page + 1)}
+            disabled={page === totalPages}
+            className="px-4 py-2 rounded-lg bg-gray-200 disabled:opacity-50"
+          >
+            Next
+          </button>
+
         </div>
       </div>
     </section>
