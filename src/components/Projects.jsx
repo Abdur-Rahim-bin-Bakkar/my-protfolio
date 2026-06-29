@@ -80,88 +80,88 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-           <motion.div
-  key={project._id || index}
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5, delay: index * 0.1 }}
-  whileHover={{ y: -12 }}
-  className="group relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
->
-  {/* Image */}
-  <div className="relative h-56 overflow-hidden">
-    <img
-      src={project.image}
-      alt={project.title}
-      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-    />
+            <motion.div
+              key={project._id || index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -12 }}
+              className="group relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
+            >
+              {/* Image */}
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
 
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-    {/* Badge */}
-    <span className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
-      Featured
-    </span>
-  </div>
+                {/* Badge */}
+                <span className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+                  Featured
+                </span>
+              </div>
 
-  {/* Content */}
-  <div className="p-6">
+              {/* Content */}
+              <div className="p-6">
 
-    <h3 className="mb-3 text-2xl font-bold text-gray-900 transition group-hover:text-orange-500 dark:text-white">
-      {project.title}
-    </h3>
+                <h3 className="mb-3 text-2xl font-bold text-gray-900 transition group-hover:text-orange-500 dark:text-white">
+                  {project.title}
+                </h3>
 
-    <p className="mb-5 line-clamp-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
-      {project.description}
-    </p>
+                <p className="mb-5 line-clamp-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
+                  {project.description}
+                </p>
 
-    {/* Tags */}
-    <div className="mb-6 flex flex-wrap gap-2">
-      {project.tags.map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600 dark:border-orange-500/30 dark:bg-orange-500/10 dark:text-orange-400"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
+                {/* Tags */}
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600 dark:border-orange-500/30 dark:bg-orange-500/10 dark:text-orange-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-    {/* Buttons */}
-    <div className="grid grid-cols-3 gap-3">
+                {/* Buttons */}
+                <div className="grid grid-cols-3 gap-3">
 
-      <Link
-        href={project.demo}
-        target="_blank"
-        className="rounded-xl bg-orange-500 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-600"
-      >
-        🚀 Demo
-      </Link>
+                  <Link
+                    href={project.demo}
+                    target="_blank"
+                    className="rounded-xl bg-orange-500 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-600"
+                  >
+                    🚀 Demo
+                  </Link>
 
-      <Link
-        href={project.code}
-        target="_blank"
-        className="rounded-xl border border-gray-300 py-2 text-center text-sm font-semibold text-gray-700 transition hover:border-orange-500 hover:text-orange-500 dark:border-gray-700 dark:text-gray-300 dark:hover:border-orange-500 dark:hover:text-orange-400"
-      >
-        💻 Code
-      </Link>
+                  <Link
+                    href={project.code}
+                    target="_blank"
+                    className="rounded-xl border border-gray-300 py-2 text-center text-sm font-semibold text-gray-700 transition hover:border-orange-500 hover:text-orange-500 dark:border-gray-700 dark:text-gray-300 dark:hover:border-orange-500 dark:hover:text-orange-400"
+                  >
+                    💻 Code
+                  </Link>
 
-      <Link
-        href={`/${project._id}`}
-        className="rounded-xl border border-orange-500 py-2 text-center text-sm font-semibold text-orange-500 transition hover:bg-orange-500 hover:text-white"
-      >
-        Details →
-      </Link>
+                  <Link
+                    href={`/${project._id}`}
+                    className="rounded-xl border border-orange-500 py-2 text-center text-sm font-semibold text-orange-500 transition hover:bg-orange-500 hover:text-white"
+                  >
+                    Details →
+                  </Link>
 
-    </div>
+                </div>
 
-  </div>
+              </div>
 
-  {/* Bottom Glow */}
-  <div className="absolute -bottom-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100"></div>
-</motion.div>
+              {/* Bottom Glow */}
+              <div className="absolute -bottom-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100"></div>
+            </motion.div>
           ))}
         </div>
 
