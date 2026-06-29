@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import logo from '@/assets/mylogo.png'
-import Image from 'next/image';
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,114 +13,113 @@ const Navbar = () => {
 
   useEffect(() => {
     setMounted(true);
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!mounted) return null;
 
   const navLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'About', href: '/#about' },
-    { name: 'Projects', href: '/#projects' },
-    { name: 'Contacts', href: '/#contact' },
-    { name: 'Social', href: '/#footer' },
-    { name: 'Qualifications', href: '/#qualifications' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Qualifications", href: "#qualifications" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 h-19 items-center transition-all duration-300 'bg-white/90 dark:bg-brand-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800' : 'bg-transparent`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <div className="flex-shrink-0">
-            <a href="#" className="text-xl font-bold tracking-tight text-text-primary">
-              
-              <img src={'https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png'} alt='logo' width={40} height={40} className='w-14 rounded-full  shadow hover:shadow-orange-500 hover:scale-120 duration-700 dark:border border-orange-500'></img>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-lg border-b border-gray-200/40 dark:border-white/10 py-2"
+          : "bg-transparent py-4"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+
+        {/* LOGO */}
+        <motion.a
+          href="#home"
+          whileHover={{ scale: 1.05 }}
+          className="flex items-center gap-2"
+        >
+         <img src={'https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png'} alt='logo' width={40} height={40} className='w-14 rounded-full shadow hover:shadow-orange-500 hover:scale-120 duration-700 dark:border border-orange-500'></img>
+        </motion.a>
+
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link, i) => (
+            <a
+              key={i}
+              href={link.href}
+              className="relative text-gray-700 dark:text-gray-200 font-medium group"
+            >
+              {link.name}
+
+              {/* underline animation */}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-300"></span>
             </a>
-          </div>
-          
-          {/* Desktop Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="hover:text-brand-orange px-3 py-2 text-sm font-medium transition-colors text-text-secondary">
+          ))}
+
+          {/* THEME TOGGLE */}
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:scale-110 transition"
+          >
+            {theme === "dark" ? "🌙" : "☀️"}
+          </button>
+        </div>
+
+        {/* MOBILE BUTTONS */}
+        <div className="md:hidden flex items-center gap-3">
+
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="p-2 rounded-full bg-gray-100 dark:bg-white/10"
+          >
+            {theme === "dark" ? "🌙" : "☀️"}
+          </button>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-md bg-gray-100 dark:bg-white/10"
+          >
+            {isMenuOpen ? "✖" : "☰"}
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden overflow-hidden bg-white/90 dark:bg-black/70 backdrop-blur-xl border-t border-gray-200 dark:border-white/10"
+          >
+            <div className="flex flex-col px-6 py-4 gap-4">
+              {navLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-700 dark:text-gray-200 font-medium py-2 hover:text-orange-500 transition"
+                >
                   {link.name}
                 </a>
               ))}
-              
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-text-secondary hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                )}
-              </button>
             </div>
-          </div>
-
-          {/* Mobile Buttons */}
-          <div className="md:hidden flex items-center gap-4">
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-text-secondary"
-            >
-              {theme === "dark" ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg text-text-secondary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              {isMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-64 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-brand-dark/98' : 'max-h-0'}`}>
-        <div className="px-4 pt-2 pb-6 space-y-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-4 text-base dark:text-white light:text-black font-medium text-text-secondary hover:text-brand-orange dark:hover:text-brand-orange hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-xl transition-all"
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
-
 
 export default Navbar;
