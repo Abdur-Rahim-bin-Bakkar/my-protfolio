@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function HeroTyping() {
-  const roles = [
+  const roles = useMemo(() => [
     "MERN Stack Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
     "Express.js Developer",
-  ];
+  ], []);
 
   const [text, setText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
@@ -42,12 +42,9 @@ export default function HeroTyping() {
   }, [text, isDeleting, roleIndex, roles]);
 
   return (
-    <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
-      I am{" "}
-      <span className="text-blue-500">
-        {text}
-        <span className="animate-pulse">|</span>
-      </span>
-    </h1>
+    <div className="text-xl sm:text-2xl md:text-3xl font-medium text-text-secondary">
+      <span>{text}</span>
+      <span className="inline-block w-[3px] h-7 md:h-8 bg-orange-500 ml-1 animate-pulse" />
+    </div>
   );
 }

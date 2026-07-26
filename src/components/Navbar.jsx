@@ -2,24 +2,45 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaSun, FaMoon, FaTimes, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const id = requestAnimationFrame(() => {
+      setMounted(true);
+    });
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
     };
 
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   if (!mounted) return null;
@@ -27,70 +48,87 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Qualifications", href: "#qualifications" },
     { name: "Contact", href: "#contact" },
-    { name: "Skills", href: "#skills" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/70 dark:bg-black/60 backdrop-blur-xl shadow-lg border-b border-gray-200/40 dark:border-white/10 py-2"
-          : "bg-transparent py-4"
+          ? "bg-brand-dark/80 backdrop-blur-xl border-b border-brand-card-border shadow-lg shadow-black/10"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 md:h-20">
         {/* LOGO */}
         <motion.a
           href="#home"
           whileHover={{ scale: 1.05 }}
           className="flex items-center gap-2"
         >
-         <img src={'https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png'} alt='logo' width={40} height={40} className='w-14 rounded-full shadow hover:shadow-orange-500 hover:scale-120 duration-700 dark:border border-orange-500'></img>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full blur-sm opacity-60" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+              src="https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png"
+              alt="logo"
+              className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange-500/30 object-cover"
+            />
+          </div>
+          <span className="hidden sm:block font-bold text-lg text-text-primary">
+            Abdur <span className="text-orange-500">Rahim</span>
+          </span>
         </motion.a>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link, i) => (
             <a
               key={i}
               href={link.href}
-              className="relative text-gray-700 dark:text-gray-200 font-medium group"
+              className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                activeSection === link.href.replace("#", "")
+                  ? "text-orange-400 bg-orange-500/10"
+                  : "text-gray-400 hover:text-text-primary hover:bg-brand-card/50"
+              }`}
             >
               {link.name}
-
-              {/* underline animation */}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+              {activeSection === link.href.replace("#", "") && (
+                <motion.div
+                  layoutId="nav-indicator"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
             </a>
           ))}
 
           {/* THEME TOGGLE */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:scale-110 transition"
+            className="ml-4 p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border hover:border-orange-500/30 hover:bg-orange-500/10 transition-all duration-300 text-gray-400 hover:text-orange-400"
           >
-            {theme === "dark" ? "🌙" : "☀️"}
+            {theme === "dark" ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
           </button>
         </div>
 
         {/* MOBILE BUTTONS */}
         <div className="md:hidden flex items-center gap-3">
-
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full bg-gray-100 dark:bg-white/10"
+            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-orange-400 transition-all"
           >
-            {theme === "dark" ? "🌙" : "☀️"}
+            {theme === "dark" ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
           </button>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-md bg-gray-100 dark:bg-white/10"
+            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-orange-400 transition-all"
           >
-            {isMenuOpen ? "✖" : "☰"}
+            {isMenuOpen ? <FaTimes className="w-4 h-4" /> : <FaBars className="w-4 h-4" />}
           </button>
         </div>
       </div>
@@ -99,18 +137,22 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-white/90 dark:bg-black/70 backdrop-blur-xl border-t border-gray-200 dark:border-white/10"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden border-t border-brand-card-border bg-brand-dark/95 backdrop-blur-xl"
           >
-            <div className="flex flex-col px-6 py-4 gap-4">
+            <div className="flex flex-col px-4 py-4 gap-1">
               {navLinks.map((link, i) => (
                 <a
                   key={i}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 dark:text-gray-200 font-medium py-2 hover:text-orange-500 transition"
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                    activeSection === link.href.replace("#", "")
+                      ? "text-orange-400 bg-orange-500/10"
+                      : "text-gray-400 hover:text-text-primary hover:bg-brand-card/50"
+                  }`}
                 >
                   {link.name}
                 </a>

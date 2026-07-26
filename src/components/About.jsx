@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import image from "@/assets/mex.png";
+import { FaDownload, FaArrowRight } from "react-icons/fa";
 
 const About = () => {
   const handleDownload = () => {
@@ -14,119 +15,150 @@ const About = () => {
 
   const stats = [
     {
-      title: "Experience",
-      value: "1+ Year",
-      desc: "Learning & Building",
-      icon: "⏳",
+      value: "1+",
+      label: "Years",
+      desc: "Experience",
+      gradient: "from-orange-500 to-red-500",
     },
     {
-      title: "Projects",
       value: "10+",
-      desc: "Completed Works",
-      icon: "🚀",
+      label: "Projects",
+      desc: "Completed",
+      gradient: "from-orange-500 to-orange-500",
     },
     {
-      title: "Support",
       value: "24/7",
-      desc: "Available Online",
-      icon: "💬",
+      label: "Support",
+      desc: "Available",
+      gradient: "from-cyan-500 to-blue-500",
     },
   ];
 
   return (
-    <section id="about" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+    <section id="about" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
 
-      {/* background glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-orange-400/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400/20 blur-3xl rounded-full"></div>
+      {/* Floating shapes */}
+      <div className="absolute top-1/4 right-[10%] w-4 h-4 border border-orange-500/20 rounded-full animate-float" />
+      <div className="absolute bottom-1/3 left-[8%] w-3 h-12 bg-gradient-to-b from-orange-500/10 to-transparent rounded-full animate-float-delayed" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-5xl font-extrabold text-text-primary">
-            About <span className="text-brand-orange">Me</span>
+          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">Who I Am</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            About <span className="gradient-text">Me</span>
           </h2>
-          <p className="text-text-secondary mt-3 text-lg">
-            Get to know more about who I am
-          </p>
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
         </motion.div>
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Section */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             className="flex justify-center"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-3xl blur opacity-40 group-hover:opacity-70 transition"></div>
+              {/* Gradient border glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-orange-500 to-orange-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
 
-              <div className="relative w-80 h-96 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl transform hover:scale-105 transition duration-300">
+              {/* Image */}
+              <div className="relative w-72 md:w-80 lg:w-96 h-96 lg:h-[28rem] rounded-3xl overflow-hidden border border-brand-card-border shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent z-10" />
                 <Image
                   src={image}
                   alt="Profile"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+
+                {/* Experience badge overlay */}
+                <div className="absolute bottom-4 left-4 right-4 z-20">
+                  <div className="bg-brand-card/80 backdrop-blur-xl border border-brand-card-border rounded-xl px-4 py-3">
+                    <p className="text-sm text-text-secondary">
+                      <span className="text-orange-400 font-bold">Passionate</span> about building digital experiences
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* Content Section */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
             className="space-y-8"
           >
-
             {/* Stats Cards */}
             <div className="grid grid-cols-3 gap-4">
               {stats.map((item, i) => (
-                <div
+                <motion.div
                   key={i}
-                  className="p-5 rounded-2xl bg-white/70 dark:bg-brand-card backdrop-blur border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative p-5 rounded-2xl bg-brand-card/50 border border-brand-card-border overflow-hidden group"
                 >
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <h4 className="font-bold text-sm">{item.title}</h4>
-                  <p className="text-brand-orange font-bold">{item.value}</p>
-                  <p className="text-xs text-text-muted">{item.desc}</p>
-                </div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                  <div className="relative z-10 text-center">
+                    <h3 className={`text-3xl font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
+                      {item.value}
+                    </h3>
+                    <p className="text-xs text-text-muted mt-1 uppercase tracking-wider">{item.label}</p>
+                    <div className="mt-2 mx-auto w-8 h-0.5 bg-gradient-to-r from-orange-500/30 to-orange-500/30 rounded-full" />
+                    <p className="text-sm text-text-secondary mt-2 font-medium">{item.desc}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Description */}
-            <p className="text-text-secondary leading-relaxed text-lg">
-              I’m a passionate <span className="text-brand-orange font-semibold">MERN Stack Developer</span> and CST student.
-              I love building modern, responsive, and user-friendly web applications.
-              My goal is to turn ideas into real-world digital products using clean and scalable code.
-            </p>
+            <div className="space-y-4">
+              <p className="text-text-secondary leading-relaxed text-lg">
+                I&apos;m a passionate <span className="text-orange-400 font-semibold">MERN Stack Developer</span> and CST student.
+                I love building modern, responsive, and user-friendly web applications.
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                My goal is to turn ideas into real-world digital products using clean, scalable code
+                and cutting-edge technologies. Every project is an opportunity to create something impactful.
+              </p>
+            </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 pt-2">
               <button
                 onClick={handleDownload}
-                className="bg-brand-orange hover:bg-brand-orange-hover text-white px-8 py-3 rounded-xl font-semibold shadow-lg shadow-orange-500/30 transition hover:scale-105"
+                className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold shadow-lg overflow-hidden transition-all duration-300 hover:shadow-orange-500/25 hover:scale-[1.02]"
               >
-                Download Resume
+                <span className="relative z-10 flex items-center gap-2">
+                  <FaDownload />
+                  Download Resume
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
 
               <a
                 href="#contact"
-                className="px-8 py-3 rounded-xl border border-gray-400 dark:border-gray-600 font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                className="group px-8 py-4 border border-brand-card-border rounded-xl font-semibold text-text-secondary hover:text-orange-400 hover:border-orange-500/50 transition-all duration-300 flex items-center gap-2"
               >
                 Contact Me
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-
           </motion.div>
         </div>
       </div>

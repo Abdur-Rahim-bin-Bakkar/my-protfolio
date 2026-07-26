@@ -7,96 +7,78 @@ import {
   FaLinkedin,
   FaFacebook,
   FaArrowUp,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaWhatsapp,
-  FaMapMarkerAlt,
+  FaHeart,
 } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const quickLinks = ["Home", "About", "Skills", "Projects", "Qualifications", "Contact"];
+
   return (
-    <footer
-      id="footer"
-      className="relative overflow-hidden border-t border-orange-500/20 bg-gradient-to-b from-[#0f172a] via-[#111827] to-black text-white"
-    >
-      {/* Background Blur */}
-      <div className="absolute -top-24 left-10 h-72 w-72 rounded-full bg-orange-500/10 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-orange-600/10 blur-[150px]" />
+    <footer className="relative overflow-hidden border-t border-brand-card-border bg-gradient-to-b from-brand-dark to-brand-dark">
+      {/* Gradient top line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+      {/* Background glow */}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-500/3 via-orange-500/3 to-transparent blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-t from-orange-500/5 to-transparent blur-3xl rounded-full" />
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-14">
-
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="lg:col-span-1"
           >
-            <h2 className="text-4xl font-black mb-5">
+            <h2 className="text-3xl font-black mb-4">
               Abdur{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
                 Rahim
               </span>
             </h2>
-
-            <p className="text-gray-400 leading-8">
-              Passionate Full Stack Developer creating modern, scalable and
-              high-performance web applications using Next.js, React, Node.js
-              and MongoDB.
+            <p className="text-gray-500 leading-relaxed text-sm">
+              Full Stack Developer crafting modern, scalable web experiences
+              with Next.js, React, Node.js and MongoDB.
             </p>
-
-            <div className="mt-8 flex gap-4">
-              <a
-                href="#contact"
-                className="rounded-full bg-orange-500 px-6 py-3 font-semibold transition hover:scale-105 hover:bg-orange-600"
-              >
-                Hire Me
-              </a>
-
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                className="rounded-full border border-orange-500 px-6 py-3 font-semibold transition hover:bg-orange-500"
-              >
-                Resume
-              </a>
+            <div className="mt-6 flex gap-4">
+              {[
+                { icon: <FaGithub />, href: "https://github.com/Abdur-Rahim-bin-Bakkar" },
+                { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/" },
+                { icon: <FaFacebook />, href: "https://www.facebook.com/profile.php?id=61582681106407" },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  className="p-3 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-500 hover:text-orange-400 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300"
+                >
+                  <span className="text-lg">{social.icon}</span>
+                </a>
+              ))}
             </div>
           </motion.div>
 
           {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: .2 }}
+            transition={{ delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-orange-400">
-              Quick Links
-            </h3>
-
-            <div className="space-y-4">
-              {[
-                "Home",
-                "About",
-                "Skills",
-                "Projects",
-                "Experience",
-                "Contact",
-              ].map((item) => (
+            <h3 className="text-base font-bold mb-5 text-text-primary">Quick Links</h3>
+            <div className="space-y-3">
+              {quickLinks.map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-gray-400 transition hover:text-orange-400 hover:translate-x-2"
+                  className="block text-sm text-gray-500 transition-all duration-300 hover:text-orange-400 hover:translate-x-1"
                 >
                   {item}
                 </a>
@@ -106,118 +88,71 @@ const Footer = () => {
 
           {/* Services */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: .3 }}
+            transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-orange-400">
-              Services
-            </h3>
-
-            <div className="space-y-4 text-gray-400">
-              <p>✔ Full Stack Development</p>
-              <p>✔ Frontend Development</p>
-              <p>✔ Backend API</p>
-              <p>✔ MongoDB Database</p>
-              <p>✔ Authentication</p>
-              <p>✔ Responsive Website</p>
+            <h3 className="text-base font-bold mb-5 text-text-primary">Services</h3>
+            <div className="space-y-3 text-sm text-gray-500">
+              {[
+                "Full Stack Development",
+                "Frontend Development",
+                "Backend API",
+                "MongoDB Database",
+                "Authentication",
+                "Responsive Design",
+              ].map((service, i) => (
+                <p key={i} className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-orange-500/50" />
+                  {service}
+                </p>
+              ))}
             </div>
           </motion.div>
 
           {/* Contact */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: .4 }}
+            transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6 text-orange-400">
-              Contact
-            </h3>
-
-            <div className="space-y-5 text-gray-400">
-
-              <div className="flex gap-3 items-center">
-                <FaPhoneAlt className="text-orange-500" />
-                <span>+8801873135444</span>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <FaWhatsapp className="text-orange-500" />
-                <span>+8801873135444</span>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <FaEnvelope className="text-orange-500" />
-                <span>webdesignrahim4061@gmail.com</span>
-              </div>
-
-              <div className="flex gap-3 items-center">
-                <FaMapMarkerAlt className="text-orange-500" />
-                <span>Dhaka, Bangladesh</span>
-              </div>
-
-              {/* Social */}
-              <div className="flex gap-5 pt-6">
-
-                <a
-                  href="https://github.com/Abdur-Rahim-bin-Bakkar"
-                  target="_blank"
-                  className="text-3xl transition duration-300 hover:-translate-y-2 hover:text-orange-500"
-                >
-                  <FaGithub />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/fswd-abdur-rahim-bin-bakkar/"
-                  target="_blank"
-                  className="text-3xl transition duration-300 hover:-translate-y-2 hover:text-orange-500"
-                >
-                  <FaLinkedin />
-                </a>
-
-                <a
-                  href="https://www.facebook.com/profile.php?id=61582681106407"
-                  target="_blank"
-                  className="text-3xl transition duration-300 hover:-translate-y-2 hover:text-orange-500"
-                >
-                  <FaFacebook />
-                </a>
-
-              </div>
-
+            <h3 className="text-base font-bold mb-5 text-text-primary">Contact</h3>
+            <div className="space-y-4 text-sm text-gray-500">
+              <p>+880 1873-135444</p>
+              <p>webdesignrahim4061@gmail.com</p>
+              <p>Dhaka, Bangladesh</p>
             </div>
-
+            <a
+              href="#contact"
+              className="inline-block mt-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/25"
+            >
+              Hire Me
+            </a>
           </motion.div>
-
         </div>
 
         {/* Divider */}
-
-        <div className="my-12 h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+        <div className="my-12 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent" />
 
         {/* Bottom */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-gray-600">
+            &copy; {currentYear} Abdur Rahim. All rights reserved.
+          </p>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-
-          <p className="text-center text-gray-500">
-            © {currentYear}{" "}
-            <span className="text-orange-400 font-semibold">
-              Abdur Rahim
-            </span>
-            . All Rights Reserved.
+          <p className="text-sm text-gray-600 flex items-center gap-1">
+            Built with <FaHeart className="text-orange-500 text-xs" /> using Next.js
           </p>
 
           <button
             onClick={scrollTop}
-            className="group rounded-full bg-orange-500 p-4 transition hover:scale-110 hover:bg-orange-600"
+            className="group p-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-orange-500/25 hover:scale-110"
           >
-            <FaArrowUp className="group-hover:-translate-y-1 transition" />
+            <FaArrowUp className="group-hover:-translate-y-0.5 transition-transform" />
           </button>
-
         </div>
-
       </div>
     </footer>
   );

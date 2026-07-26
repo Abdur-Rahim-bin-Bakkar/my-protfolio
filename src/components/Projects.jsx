@@ -1,12 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import app from '@/assets/app.png'
-import Image from 'next/image';
-// "use client";
-
 import { useEffect, useState } from "react";
-// import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Projects = () => {
@@ -19,163 +14,175 @@ const Projects = () => {
 
   const limit = 3;
 
-
-
   useEffect(() => {
     const getProjects = async () => {
       setLoading(true);
-
-      const res = await fetch(
-        `/api/projects?page=${page}&limit=${limit}`
-      );
-
+      const res = await fetch(`/api/projects?page=${page}&limit=${limit}`);
       const data = await res.json();
-
       setProjects(data.projects);
       setTotalPages(data.totalPages);
       setTotalProjects(data.totalProjects);
-
       setLoading(false);
     };
-
     getProjects();
   }, [page]);
 
-
+  const SkeletonCard = () => (
+    <div className="rounded-3xl border border-brand-card-border bg-brand-card/30 overflow-hidden animate-pulse">
+      <div className="h-56 bg-gray-800/50" />
+      <div className="p-6 space-y-4">
+        <div className="h-6 bg-gray-800/50 rounded-full w-3/4" />
+        <div className="h-4 bg-gray-800/50 rounded-full w-full" />
+        <div className="h-4 bg-gray-800/50 rounded-full w-2/3" />
+        <div className="flex gap-2">
+          <div className="h-6 bg-gray-800/50 rounded-full w-16" />
+          <div className="h-6 bg-gray-800/50 rounded-full w-20" />
+          <div className="h-6 bg-gray-800/50 rounded-full w-14" />
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <section id="projects" className="py-24 bg-background px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-4xl font-bold">
-            Projects
-          </h2>
+    <section id="projects" className="relative py-32 bg-background px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-orange-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute top-1/3 left-[5%] w-2 h-2 bg-orange-500/30 rounded-full animate-float" />
+      <div className="absolute bottom-1/4 right-[8%] w-4 h-4 border border-orange-500/20 rounded-full animate-float-delayed" />
 
-          <p className="text-gray-500">
-            Showing{" "}
-            <span className="font-bold">
-              {(page - 1) * limit + 1}
-            </span>
-            -
-            <span className="font-bold">
-              {Math.min(page * limit, totalProjects)}
-            </span>{" "}
-            of{" "}
-            <span className="font-bold">
-              {totalProjects}
-            </span>{" "}
-            Projects
-          </p>
-        </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <img src={app} alt="" />
-          <h2 className="text-4xl font-bold light:text-black dark:text-white">Projects</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">Most Recent Work</p>
+          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">My Work</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project._id || index}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -12 }}
-              className="group relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111827] shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
-            >
-              {/* Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                {/* Badge */}
-                <span className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
-                  Featured
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-
-                <h3 className="mb-3 text-2xl font-bold text-gray-900 transition group-hover:text-orange-500 dark:text-white">
-                  {project.title}
-                </h3>
-
-                <p className="mb-5 line-clamp-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600 dark:border-orange-500/30 dark:bg-orange-500/10 dark:text-orange-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Buttons */}
-                <div className="grid grid-cols-3 gap-3">
-
-                  <Link
-                    href={project.demo}
-                    target="_blank"
-                    className="rounded-xl bg-orange-500 py-2 text-center text-sm font-semibold text-white transition hover:bg-orange-600"
-                  >
-                    🚀 Demo
-                  </Link>
-
-                  <Link
-                    href={project.code}
-                    target="_blank"
-                    className="rounded-xl border border-gray-300 py-2 text-center text-sm font-semibold text-gray-700 transition hover:border-orange-500 hover:text-orange-500 dark:border-gray-700 dark:text-gray-300 dark:hover:border-orange-500 dark:hover:text-orange-400"
-                  >
-                    💻 Code
-                  </Link>
-
-                  <Link
-                    href={`/${project._id}`}
-                    className="rounded-xl border border-orange-500 py-2 text-center text-sm font-semibold text-orange-500 transition hover:bg-orange-500 hover:text-white"
-                  >
-                    Details →
-                  </Link>
-
-                </div>
-
-              </div>
-
-              {/* Bottom Glow */}
-              <div className="absolute -bottom-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl opacity-0 transition duration-500 group-hover:opacity-100"></div>
-            </motion.div>
-          ))}
+        {/* Info bar */}
+        <div className="flex justify-between items-center mb-10">
+          <p className="text-sm text-text-muted">
+            Showing{" "}
+            <span className="font-bold text-text-secondary">
+              {(page - 1) * limit + 1}
+            </span>
+            -
+            <span className="font-bold text-text-secondary">
+              {Math.min(page * limit, totalProjects)}
+            </span>{" "}
+            of{" "}
+            <span className="font-bold text-text-secondary">
+              {totalProjects}
+            </span>{" "}
+            projects
+          </p>
         </div>
 
+        {/* Grid */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => <SkeletonCard key={i} />)}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project._id || index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative"
+              >
+                {/* Gradient border wrapper */}
+                <div className="relative rounded-3xl bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-orange-500/10 p-[1px] overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-orange-500/10 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
 
+                  <div className="relative rounded-3xl bg-brand-card/80 border border-brand-card-border overflow-hidden backdrop-blur-sm">
+                    {/* Image */}
+                    <div className="relative h-56 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
 
+                      {/* Badge */}
+                      <span className="absolute top-4 left-4 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-3 py-1 text-xs font-semibold text-white shadow-lg shadow-orange-500/30">
+                        Featured
+                      </span>
+                    </div>
 
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="mb-3 text-xl font-bold text-text-primary group-hover:text-orange-400 transition-colors duration-300">
+                        {project.title}
+                      </h3>
 
+                      <p className="mb-5 line-clamp-2 text-sm leading-7 text-text-muted">
+                        {project.description}
+                      </p>
 
-        <div className="flex justify-center gap-2 mt-12">
+                      {/* Tags */}
+                      <div className="mb-6 flex flex-wrap gap-2">
+                        {project.tags?.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-400"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
 
+                      {/* Buttons */}
+                      <div className="grid grid-cols-3 gap-3">
+                        <Link
+                          href={project.demo}
+                          target="_blank"
+                          className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 py-2.5 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]"
+                        >
+                          Demo
+                        </Link>
+
+                        <Link
+                          href={`/${project._id}`}
+                          className="rounded-xl border border-orange-500/30 py-2.5 text-center text-sm font-semibold text-orange-400 transition-all hover:bg-orange-500/10 hover:border-orange-500/50"
+                        >
+                          Details
+                        </Link>
+
+                        <a
+                          href={project.code}
+                          target="_blank"
+                          className="rounded-xl border border-brand-card-border py-2.5 text-center text-sm font-semibold text-text-secondary transition-all hover:border-orange-500/30 hover:text-orange-400"
+                        >
+                          Code
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {/* Pagination */}
+        <div className="flex justify-center gap-3 mt-16">
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className="px-4 py-2 rounded-lg bg-gray-200 disabled:opacity-50"
+            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-orange-500/30 hover:text-orange-400 transition-all"
           >
             Previous
           </button>
@@ -184,10 +191,11 @@ const Projects = () => {
             <button
               key={i}
               onClick={() => setPage(i + 1)}
-              className={`px-4 py-2 rounded-lg ${page === i + 1
-                ? "bg-orange-500 text-white"
-                : "bg-gray-200"
-                }`}
+              className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                page === i + 1
+                  ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/25"
+                  : "bg-brand-card/50 border border-brand-card-border text-text-secondary hover:border-orange-500/30 hover:text-orange-400"
+              }`}
             >
               {i + 1}
             </button>
@@ -196,11 +204,10 @@ const Projects = () => {
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
-            className="px-4 py-2 rounded-lg bg-gray-200 disabled:opacity-50"
+            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-orange-500/30 hover:text-orange-400 transition-all"
           >
             Next
           </button>
-
         </div>
       </div>
     </section>
