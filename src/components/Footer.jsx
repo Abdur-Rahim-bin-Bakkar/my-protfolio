@@ -43,7 +43,7 @@ const Footer = () => {
                 Rahim
               </span>
             </h2>
-            <p className="text-gray-500 leading-relaxed text-sm">
+            <p className="text-text-secondary leading-relaxed text-sm">
               Full Stack Developer crafting modern, scalable web experiences
               with Next.js, React, Node.js and MongoDB.
             </p>
@@ -57,7 +57,7 @@ const Footer = () => {
                   key={i}
                   href={social.href}
                   target="_blank"
-                  className="p-3 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-500 hover:text-orange-400 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300"
+                  className="p-3 rounded-xl bg-brand-card/50 border border-brand-card-border text-text-secondary hover:text-orange-400 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300"
                 >
                   <span className="text-lg">{social.icon}</span>
                 </a>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-sm text-gray-500 transition-all duration-300 hover:text-orange-400 hover:translate-x-1"
+                  className="block text-sm text-text-secondary transition-all duration-300 hover:text-orange-400 hover:translate-x-1"
                 >
                   {item}
                 </a>
@@ -94,7 +94,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-base font-bold mb-5 text-text-primary">Services</h3>
-            <div className="space-y-3 text-sm text-gray-500">
+            <div className="space-y-3 text-sm text-text-secondary">
               {[
                 "Full Stack Development",
                 "Frontend Development",
@@ -119,7 +119,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-base font-bold mb-5 text-text-primary">Contact</h3>
-            <div className="space-y-4 text-sm text-gray-500">
+            <div className="space-y-4 text-sm text-text-secondary">
               <p>+880 1873-135444</p>
               <p>webdesignrahim4061@gmail.com</p>
               <p>Dhaka, Bangladesh</p>
@@ -138,11 +138,11 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-text-muted">
             &copy; {currentYear} Abdur Rahim. All rights reserved.
           </p>
 
-          <p className="text-sm text-gray-600 flex items-center gap-1">
+          <p className="text-sm text-text-muted flex items-center gap-1">
             Built with <FaHeart className="text-orange-500 text-xs" /> using Next.js
           </p>
 

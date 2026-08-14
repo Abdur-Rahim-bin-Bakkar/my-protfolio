@@ -59,8 +59,6 @@ const Qualification = () => {
       {/* Background glow */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-[120px] rounded-full" />
-      <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-orange-500/30 rounded-full animate-float" />
-      <div className="absolute bottom-1/3 right-1/4 w-3 h-3 border border-orange-500/20 rounded-full animate-float-delayed" />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Heading */}

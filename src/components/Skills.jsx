@@ -129,7 +129,6 @@ const Skills = () => {
   return (
     <section id="skills" className="relative py-32 bg-background overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-orange-500/3 via-orange-500/3 to-orange-500/3 blur-3xl rounded-full" />
       <div className="absolute top-20 right-20 w-4 h-4 border border-orange-500/20 rounded-full animate-float" />
       <div className="absolute bottom-20 left-20 w-3 h-16 bg-gradient-to-b from-orange-500/10 to-transparent rounded-full animate-float-delayed" />
 
@@ -211,7 +210,7 @@ const Skills = () => {
                       </span>
                       <span className="text-xs text-text-muted">{skill.level}%</span>
                     </div>
-                    <div className="relative h-2 bg-gray-800/50 rounded-full overflow-hidden">
+                    <div className="relative h-2 bg-text-muted/20 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}

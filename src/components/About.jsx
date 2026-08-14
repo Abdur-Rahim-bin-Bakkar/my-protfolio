@@ -40,10 +40,6 @@ const About = () => {
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
 
-      {/* Floating shapes */}
-      <div className="absolute top-1/4 right-[10%] w-4 h-4 border border-orange-500/20 rounded-full animate-float" />
-      <div className="absolute bottom-1/3 left-[8%] w-3 h-12 bg-gradient-to-b from-orange-500/10 to-transparent rounded-full animate-float-delayed" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <motion.div

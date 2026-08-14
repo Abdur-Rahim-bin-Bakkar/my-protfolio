@@ -1,41 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  color-scheme: light;
+  --background: #f6f7f9;
   --foreground: #111827;
 
   --text-primary: #111827;
   --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
+  --text-muted: #94a3b8;
 
-  --brand-dark: #f9fafb;
-  --brand-card: #f3f4f6;
-  --brand-card-border: rgba(0, 0, 0, 0.08);
+  --brand-dark: #f8f9fb;
+  --brand-card: #ffffff;
+  --brand-card-border: rgba(15, 23, 42, 0.1);
   --brand-orange: #ff5722;
   --brand-orange-hover: #e64a19;
 
-  --mesh-color-1: rgba(255, 87, 34, 0.06);
-  --mesh-color-2: rgba(230, 74, 25, 0.04);
-  --mesh-color-3: rgba(255, 87, 34, 0.03);
+  --mesh-color-1: rgba(255, 87, 34, 0.04);
+  --mesh-color-2: rgba(230, 74, 25, 0.03);
+  --mesh-color-3: rgba(255, 87, 34, 0.02);
 }
 
 .dark {
-  --background: #0a0a0f;
-  --foreground: #f3f4f6;
+  color-scheme: dark;
+  --background: #07080c;
+  --foreground: #e5e7eb;
 
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #6b7280;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
 
-  --brand-dark: #0a0a0f;
-  --brand-card: #111827;
-  --brand-card-border: rgba(255, 255, 255, 0.05);
+  --brand-dark: #07080c;
+  --brand-card: #0f1520;
+  --brand-card-border: rgba(148, 163, 184, 0.14);
   --brand-orange: #ff5722;
   --brand-orange-hover: #e64a19;
 
-  --mesh-color-1: rgba(255, 87, 34, 0.12);
-  --mesh-color-2: rgba(230, 74, 25, 0.08);
-  --mesh-color-3: rgba(255, 87, 34, 0.06);
+  --mesh-color-1: rgba(255, 87, 34, 0.08);
+  --mesh-color-2: rgba(230, 74, 25, 0.06);
+  --mesh-color-3: rgba(255, 87, 34, 0.04);
 }
 
 @theme inline {
@@ -94,8 +96,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--mesh-color-1), transparent 60%),
+    var(--background);
   color: var(--foreground);
+  background-attachment: fixed;
 }
 
 .gradient-text {

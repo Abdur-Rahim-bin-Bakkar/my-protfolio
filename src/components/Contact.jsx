@@ -76,8 +76,6 @@ const Contact = () => {
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/5 to-transparent blur-3xl rounded-full" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-orange-500/5 to-transparent blur-3xl rounded-full" />
-      <div className="absolute top-1/4 left-[5%] w-3 h-3 border border-orange-500/20 rounded-full animate-float" />
-      <div className="absolute bottom-1/3 right-[8%] w-4 h-4 bg-orange-500/10 rounded-full animate-float-delayed" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Heading */}

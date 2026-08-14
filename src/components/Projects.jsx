@@ -29,15 +29,15 @@ const Projects = () => {
 
   const SkeletonCard = () => (
     <div className="rounded-3xl border border-brand-card-border bg-brand-card/30 overflow-hidden animate-pulse">
-      <div className="h-56 bg-gray-800/50" />
+      <div className="h-56 bg-text-muted/15" />
       <div className="p-6 space-y-4">
-        <div className="h-6 bg-gray-800/50 rounded-full w-3/4" />
-        <div className="h-4 bg-gray-800/50 rounded-full w-full" />
-        <div className="h-4 bg-gray-800/50 rounded-full w-2/3" />
+        <div className="h-6 bg-text-muted/15 rounded-full w-3/4" />
+        <div className="h-4 bg-text-muted/15 rounded-full w-full" />
+        <div className="h-4 bg-text-muted/15 rounded-full w-2/3" />
         <div className="flex gap-2">
-          <div className="h-6 bg-gray-800/50 rounded-full w-16" />
-          <div className="h-6 bg-gray-800/50 rounded-full w-20" />
-          <div className="h-6 bg-gray-800/50 rounded-full w-14" />
+          <div className="h-6 bg-text-muted/15 rounded-full w-16" />
+          <div className="h-6 bg-text-muted/15 rounded-full w-20" />
+          <div className="h-6 bg-text-muted/15 rounded-full w-14" />
         </div>
       </div>
     </div>
@@ -48,8 +48,6 @@ const Projects = () => {
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/5 to-transparent blur-3xl rounded-full" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-orange-500/5 to-transparent blur-3xl rounded-full" />
-      <div className="absolute top-1/3 left-[5%] w-2 h-2 bg-orange-500/30 rounded-full animate-float" />
-      <div className="absolute bottom-1/4 right-[8%] w-4 h-4 border border-orange-500/20 rounded-full animate-float-delayed" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}

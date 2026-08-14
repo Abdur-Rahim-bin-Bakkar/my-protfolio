@@ -36,10 +36,6 @@ const Hero = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-orange-500/5 to-transparent blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-orange-600/5 to-transparent blur-3xl" />
 
-      {/* Minimal floating shapes */}
-      <div className="absolute top-20 left-10 w-3 h-3 rounded-full bg-orange-500/20 animate-float" />
-      <div className="absolute bottom-1/3 right-[15%] w-2 h-2 rounded-full bg-orange-500/20 animate-float-delayed" />
-
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-14 items-center px-4 sm:px-6 lg:px-8 pt-24">
 
         {/* LEFT SIDE */}
@@ -126,7 +122,7 @@ const Hero = () => {
                   key={i}
                   href={social.href}
                   target="_blank"
-                  className="text-2xl text-gray-500 transition-all duration-300 hover:-translate-y-2 hover:text-orange-500"
+                  className="text-2xl text-text-secondary transition-all duration-300 hover:-translate-y-2 hover:text-orange-500"
                 >
                   {social.icon}
                 </a>
@@ -179,7 +175,7 @@ const Hero = () => {
         <div className="flex whitespace-nowrap animate-marquee group">
           {[...technologies, ...technologies].map((tech, index) => (
             <div key={index} className="flex items-center mx-8 md:mx-12 group-hover:[animation-play-state:paused]">
-              <span className="text-base md:text-xl font-semibold tracking-[0.15em] uppercase text-gray-600 hover:text-orange-400 transition-colors duration-300">
+              <span className="text-base md:text-xl font-semibold tracking-[0.15em] uppercase text-text-secondary hover:text-orange-400 transition-colors duration-300">
                 {tech}
               </span>
               <span className="mx-5 w-1 h-1 bg-orange-500/30 rounded-full" />
