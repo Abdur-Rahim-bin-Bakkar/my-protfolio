@@ -89,7 +89,7 @@ const Projects = () => {
             {[1, 2, 3].map((i) => <SkeletonCard key={i} />)}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             {projects.map((project, index) => (
               <motion.div
                 key={project._id || index}
@@ -97,13 +97,13 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
+                className="group relative h-full"
               >
                 {/* Gradient border wrapper */}
-                <div className="relative rounded-3xl bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-orange-500/10 p-[1px] overflow-hidden">
+                <div className="relative h-full flex flex-col rounded-3xl bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-orange-500/10 p-[1px] overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-orange-500/10 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
 
-                  <div className="relative rounded-3xl bg-brand-card/80 border border-brand-card-border overflow-hidden backdrop-blur-sm">
+                  <div className="relative flex h-full flex-col rounded-3xl bg-brand-card/80 border border-brand-card-border overflow-hidden backdrop-blur-sm">
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -121,7 +121,7 @@ const Projects = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="flex flex-1 flex-col p-6">
                       <h3 className="mb-3 text-xl font-bold text-text-primary group-hover:text-orange-400 transition-colors duration-300">
                         {project.title}
                       </h3>
@@ -143,7 +143,7 @@ const Projects = () => {
                       </div>
 
                       {/* Buttons */}
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="mt-auto grid grid-cols-3 gap-3">
                         <Link
                           href={project.demo}
                           target="_blank"
