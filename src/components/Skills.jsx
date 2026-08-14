@@ -51,22 +51,67 @@ const Skills = () => {
     },
   ];
 
+  const techLogos = {
+    'HTML': 'https://cdn.simpleicons.org/html5/E34F26',
+    'CSS': 'https://cdn.simpleicons.org/css/663399',
+    'TypeScript': 'https://cdn.simpleicons.org/typescript/3178C6',
+    'JavaScript': 'https://cdn.simpleicons.org/javascript/F7DF1E',
+    'React': 'https://cdn.simpleicons.org/react/61DAFB',
+    'Next.js': 'https://cdn.simpleicons.org/nextdotjs/000000',
+    'Tailwind': 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
+    'Bootstrap': 'https://cdn.simpleicons.org/bootstrap/7952B3',
+    'Hero UI': 'https://cdn.simpleicons.org/heroui/6D28D9',
+    'Daisy UI': 'https://cdn.simpleicons.org/daisyui/5A0EF8',
+    'Node.js': 'https://cdn.simpleicons.org/nodedotjs/339933',
+    'Express': 'https://cdn.simpleicons.org/express/000000',
+    'MongoDB': 'https://cdn.simpleicons.org/mongodb/47A248',
+    'Prisma': 'https://cdn.simpleicons.org/prisma/2D3748',
+    'PostgreSQL': 'https://cdn.simpleicons.org/postgresql/4169E1',
+    'Better Auth': 'https://cdn.simpleicons.org/betterauth/6D28D9',
+    'REST API': 'https://cdn.simpleicons.org/openapiinitiative/6BA539',
+    'Figma': 'https://cdn.simpleicons.org/figma/F24E1E',
+    'Git': 'https://cdn.simpleicons.org/git/F05032',
+    'GitHub': 'https://cdn.simpleicons.org/github/181717',
+    'VS Code': 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg',
+  };
+
+  const invertableLogos = new Set(['Next.js', 'Express', 'Prisma', 'GitHub']);
+
+  const initialGradient = {
+    'Better Auth': 'from-purple-500 to-fuchsia-500',
+  };
+
+  const renderLogo = (name, className) => {
+    const logo = techLogos[name];
+
+    if (logo) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={logo}
+          alt={name}
+          title={name}
+          className={`${className} ${invertableLogos.has(name) ? 'dark:invert' : ''} object-contain`}
+        />
+      );
+    }
+
+    return (
+      <span
+        className={`bg-gradient-to-br ${initialGradient[name]} flex items-center justify-center font-bold text-white ${className}`}
+      >
+        {name}
+      </span>
+    );
+  };
+
   const techIcons = [
-    { name: 'HTML', logo: 'https://cdn.simpleicons.org/html5/E34F26' },
-    { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/1280px-Official_CSS_Logo.svg.png' },
-    { name: 'TS', logo: 'https://cdn.simpleicons.org/typescript/3178C6' },
-    { name: 'JS', logo: 'https://cdn.simpleicons.org/javascript/F7DF1E' },
-    { name: 'React', logo: 'https://cdn.simpleicons.org/react/61DAFB' },
-    { name: 'Next', logo: 'https://cdn.simpleicons.org/nextdotjs/ffffff' },
-    { name: 'Tailwind', logo: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
-    { name: 'Node', logo: 'https://cdn.simpleicons.org/nodedotjs/339933' },
-    { name: 'Express', logo: 'https://cdn.simpleicons.org/express/ffffff' },
-    { name: 'Mongo', logo: 'https://cdn.simpleicons.org/mongodb/47A248' },
-    { name: 'Prisma', logo: 'https://cdn.simpleicons.org/prisma/2D3748' },
-    { name: 'Postgres', logo: 'https://cdn.simpleicons.org/postgresql/4169E1' },
-    { name: 'Git', logo: 'https://cdn.simpleicons.org/git/F05032' },
-    { name: 'Figma', logo: 'https://cdn.simpleicons.org/figma/F24E1E' },
-  ];
+    ...new Map(
+      skillCategories.flatMap((category) =>
+        category.skills.map((skill) => [skill.name, skill.name])
+      )
+    ).values(),
+  ].map((name) => ({ name, logo: techLogos[name] }));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -120,12 +165,7 @@ const Skills = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-500/20 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative w-16 h-16 bg-brand-card/60 border border-brand-card-border rounded-2xl flex items-center justify-center p-3 shadow-lg hover:border-orange-500/30 transition-all duration-300 cursor-default" title={icon.name}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={icon.logo}
-                  alt={icon.name}
-                  className="w-full h-full object-contain"
-                />
+                {renderLogo(icon.name, "w-full h-full")}
               </div>
               <p className="text-center text-xs text-text-muted mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{icon.name}</p>
             </motion.div>
@@ -164,8 +204,11 @@ const Skills = () => {
                     viewport={{ once: true }}
                     transition={{ delay: skillIndex * 0.05 }}
                   >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-text-primary">{skill.name}</span>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="flex items-center gap-2 text-sm font-medium text-text-primary">
+                        {renderLogo(skill.name, "w-4 h-4")}
+                        {skill.name}
+                      </span>
                       <span className="text-xs text-text-muted">{skill.level}%</span>
                     </div>
                     <div className="relative h-2 bg-gray-800/50 rounded-full overflow-hidden">
