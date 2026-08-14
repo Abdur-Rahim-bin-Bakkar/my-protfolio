@@ -31,6 +31,8 @@ const Skills = () => {
         { name: 'Node.js', level: 75 },
         { name: 'Express', level: 75 },
         { name: 'MongoDB', level: 75 },
+        { name: 'Prisma', level: 65 },
+        { name: 'PostgreSQL', level: 65 },
         { name: 'Better Auth', level: 50 },
       ],
     },
@@ -60,6 +62,8 @@ const Skills = () => {
     { name: 'Node', logo: 'https://cdn.simpleicons.org/nodedotjs/339933' },
     { name: 'Express', logo: 'https://cdn.simpleicons.org/express/ffffff' },
     { name: 'Mongo', logo: 'https://cdn.simpleicons.org/mongodb/47A248' },
+    { name: 'Prisma', logo: 'https://cdn.simpleicons.org/prisma/2D3748' },
+    { name: 'Postgres', logo: 'https://cdn.simpleicons.org/postgresql/4169E1' },
     { name: 'Git', logo: 'https://cdn.simpleicons.org/git/F05032' },
     { name: 'Figma', logo: 'https://cdn.simpleicons.org/figma/F24E1E' },
   ];
