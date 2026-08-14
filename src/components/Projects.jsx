@@ -132,9 +132,9 @@ const Projects = () => {
 
                       {/* Tags */}
                       <div className="mb-6 flex flex-wrap gap-2">
-                        {project.tags?.map((tag) => (
+                        {project.tags?.map((tag, i) => (
                           <span
-                            key={tag}
+                            key={`${project._id}-${i}-${tag}`}
                             className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-400"
                           >
                             {tag}

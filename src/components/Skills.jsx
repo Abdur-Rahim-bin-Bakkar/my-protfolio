@@ -98,7 +98,7 @@ const Skills = () => {
 
     return (
       <span
-        className={`bg-gradient-to-br ${initialGradient[name]} flex items-center justify-center font-bold text-white ${className}`}
+        className={`bg-gradient-to-br ${initialGradient[name] || 'from-orange-500 to-orange-600'} flex items-center justify-center font-bold text-white ${className}`}
       >
         {name}
       </span>
@@ -153,20 +153,25 @@ const Skills = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-24"
+          className="flex flex-wrap justify-center gap-4 sm:gap-5 mb-24"
         >
           {techIcons.map((icon) => (
             <motion.div
               key={icon.name}
               variants={itemVariants}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="group relative"
+              whileHover={{ scale: 1.08, y: -6 }}
+              className="group flex flex-col items-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-500/20 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-16 h-16 bg-brand-card/60 border border-brand-card-border rounded-2xl flex items-center justify-center p-3 shadow-lg hover:border-orange-500/30 transition-all duration-300 cursor-default" title={icon.name}>
-                {renderLogo(icon.name, "w-full h-full")}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-orange-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl border border-brand-card-border bg-gradient-to-br from-brand-card to-brand-card/50 dark:from-brand-card dark:to-brand-card/40 flex items-center justify-center p-3.5 shadow-md group-hover:border-orange-500/40 group-hover:shadow-orange-500/20 group-hover:shadow-lg transition-all duration-300 cursor-default" title={icon.name}>
+                  {renderLogo(icon.name, "w-full h-full")}
+                </div>
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-7 h-0.5 rounded-full bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <p className="text-center text-xs text-text-muted mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{icon.name}</p>
+              <p className="mt-3 text-center text-xs font-medium text-text-secondary group-hover:text-orange-400 transition-colors duration-300">
+                {icon.name}
+              </p>
             </motion.div>
           ))}
         </motion.div>
