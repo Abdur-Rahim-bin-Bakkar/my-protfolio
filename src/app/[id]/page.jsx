@@ -27,7 +27,7 @@ const ProjectDetailsPage = async ({ params }) => {
         {/* Back Button */}
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 rounded-full border border-orange-500 px-5 py-2 text-orange-500 font-semibold transition hover:bg-orange-500 hover:text-white dark:border-orange-400 dark:text-orange-400 dark:hover:bg-orange-500 dark:hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-violet-500 px-5 py-2 text-violet-500 font-semibold transition hover:bg-violet-500 hover:text-white dark:border-violet-400 dark:text-violet-400 dark:hover:bg-violet-500 dark:hover:text-white"
         >
           ← Back to Projects
         </Link>
@@ -37,7 +37,7 @@ const ProjectDetailsPage = async ({ params }) => {
           {/* Left Side */}
           <div className="group relative">
 
-            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 opacity-20 blur-2xl group-hover:opacity-40 transition"></div>
+            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-violet-500 via-violet-600 to-violet-500 opacity-20 blur-2xl group-hover:opacity-40 transition"></div>
 
             <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-2xl">
 
@@ -56,7 +56,7 @@ const ProjectDetailsPage = async ({ params }) => {
 
           <div>
 
-            <span className="inline-flex items-center gap-2 rounded-full bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-500 border border-orange-500/20 dark:bg-orange-500/15 dark:text-orange-400 dark:border-orange-400/30">
+            <span className="inline-flex items-center gap-2 rounded-full bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-500 border border-violet-500/20 dark:bg-violet-500/15 dark:text-violet-400 dark:border-violet-400/30">
               🚀 Featured Project
             </span>
 
@@ -81,7 +81,7 @@ const ProjectDetailsPage = async ({ params }) => {
                 {currentProject.tags?.map((tag,i) => (
                   <span
                     key={i}
-                    className="rounded-full border border-orange-500/20 bg-orange-50 dark:bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-600 dark:text-orange-300 dark:border-orange-400/20 transition hover:scale-105"
+                    className="rounded-full border border-violet-500/20 bg-violet-50 dark:bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-600 dark:text-violet-300 dark:border-violet-400/20 transition hover:scale-105"
                   >
                     {tag}
                   </span>
@@ -98,7 +98,7 @@ const ProjectDetailsPage = async ({ params }) => {
               <Link
                 href={currentProject.demo}
                 target="_blank"
-                className="rounded-xl bg-orange-500 px-8 py-4 text-white font-semibold shadow-lg hover:bg-orange-600 transition"
+                className="rounded-xl bg-violet-500 px-8 py-4 text-white font-semibold shadow-lg hover:bg-violet-600 transition"
               >
                 🚀 Live Demo
               </Link>
@@ -106,7 +106,7 @@ const ProjectDetailsPage = async ({ params }) => {
               <Link
                 href={currentProject.code}
                 target="_blank"
-                className="rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-8 py-4 font-semibold text-gray-700 dark:text-slate-200 hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-400 dark:hover:text-orange-400 transition"
+                className="rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-8 py-4 font-semibold text-gray-700 dark:text-slate-200 hover:border-violet-500 hover:text-violet-500 dark:hover:border-violet-400 dark:hover:text-violet-400 transition"
               >
                 💻 Source Code
               </Link>

@@ -70,16 +70,16 @@ const Navbar = () => {
           className="flex items-center gap-2"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full blur-sm opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full blur-sm opacity-60" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
               src="https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png"
               alt="logo"
-              className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange-500/30 object-cover"
+              className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-violet-500/30 object-cover"
             />
           </div>
           <span className="hidden sm:block font-bold text-lg text-text-primary">
-            Abdur <span className="text-orange-500">Rahim</span>
+            Abdur <span className="text-violet-500">Rahim</span>
           </span>
         </motion.a>
 
@@ -91,7 +91,7 @@ const Navbar = () => {
               href={link.href}
               className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                 activeSection === link.href.replace("#", "")
-                  ? "text-orange-400 bg-orange-500/10"
+                  ? "text-violet-400 bg-violet-500/10"
                   : "text-gray-400 hover:text-text-primary hover:bg-brand-card/50"
               }`}
             >
@@ -99,7 +99,7 @@ const Navbar = () => {
               {activeSection === link.href.replace("#", "") && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
@@ -109,7 +109,7 @@ const Navbar = () => {
           {/* THEME TOGGLE */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="ml-4 p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border hover:border-orange-500/30 hover:bg-orange-500/10 transition-all duration-300 text-gray-400 hover:text-orange-400"
+            className="ml-4 p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border hover:border-violet-500/30 hover:bg-violet-500/10 transition-all duration-300 text-gray-400 hover:text-violet-400"
           >
             {theme === "dark" ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
           </button>
@@ -119,14 +119,14 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-orange-400 transition-all"
+            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-violet-400 transition-all"
           >
             {theme === "dark" ? <FaSun className="w-4 h-4" /> : <FaMoon className="w-4 h-4" />}
           </button>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-orange-400 transition-all"
+            className="p-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-gray-400 hover:text-violet-400 transition-all"
           >
             {isMenuOpen ? <FaTimes className="w-4 h-4" /> : <FaBars className="w-4 h-4" />}
           </button>
@@ -150,7 +150,7 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     activeSection === link.href.replace("#", "")
-                      ? "text-orange-400 bg-orange-500/10"
+                      ? "text-violet-400 bg-violet-500/10"
                       : "text-gray-400 hover:text-text-primary hover:bg-brand-card/50"
                   }`}
                 >

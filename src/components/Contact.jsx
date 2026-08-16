@@ -45,9 +45,9 @@ const Contact = () => {
       value: "webdesignrahim4061@gmail.com",
       href: "mailto:webdesignrahim4061@gmail.com",
       action: "Send Email",
-      gradient: "from-orange-500 to-red-500",
-      shadowColor: "shadow-orange-500/20",
-      borderColor: "hover:border-orange-500",
+      gradient: "from-violet-500 to-fuchsia-500",
+      shadowColor: "shadow-violet-500/20",
+      borderColor: "hover:border-violet-500",
     },
     {
       icon: <FaLinkedin />,
@@ -74,8 +74,8 @@ const Contact = () => {
   return (
     <section id="contact" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       {/* Decorative */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/5 to-transparent blur-3xl rounded-full" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-orange-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-violet-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-violet-500/5 to-transparent blur-3xl rounded-full" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Heading */}
@@ -85,11 +85,11 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">Get In Touch</p>
+          <p className="text-violet-500 font-medium tracking-widest uppercase text-sm mb-3">Get In Touch</p>
           <h2 className="text-4xl md:text-5xl font-extrabold">
             Contact <span className="gradient-text">Me</span>
           </h2>
-          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -164,7 +164,7 @@ const Contact = () => {
                   name="name"
                   required
                   placeholder="John Doe"
-                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted focus:border-orange-500/50 focus:bg-orange-500/5 focus:ring-2 focus:ring-orange-500/10"
+                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted focus:border-violet-500/50 focus:bg-violet-500/5 focus:ring-2 focus:ring-violet-500/10"
                 />
               </div>
 
@@ -177,7 +177,7 @@ const Contact = () => {
                   name="email"
                   required
                   placeholder="example@gmail.com"
-                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted focus:border-orange-500/50 focus:bg-orange-500/5 focus:ring-2 focus:ring-orange-500/10"
+                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted focus:border-violet-500/50 focus:bg-violet-500/5 focus:ring-2 focus:ring-violet-500/10"
                 />
               </div>
 
@@ -190,14 +190,14 @@ const Contact = () => {
                   name="message"
                   required
                   placeholder="Tell me about your project..."
-                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted resize-none focus:border-orange-500/50 focus:bg-orange-500/5 focus:ring-2 focus:ring-orange-500/10"
+                  className="w-full rounded-xl border border-brand-card-border bg-brand-card/50 px-5 py-3.5 text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted resize-none focus:border-violet-500/50 focus:bg-violet-500/5 focus:ring-2 focus:ring-violet-500/10"
                 />
               </div>
 
               <button
                 disabled={loading}
                 type="submit"
-                className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-orange-500/25 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
+                className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-violet-500/25 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {loading ? (
@@ -215,7 +215,7 @@ const Contact = () => {
                     </>
                   )}
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
 
               {success && (

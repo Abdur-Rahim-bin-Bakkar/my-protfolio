@@ -44,7 +44,7 @@ export default function HeroTyping() {
   return (
     <div className="text-xl sm:text-2xl md:text-3xl font-medium text-text-secondary">
       <span>{text}</span>
-      <span className="inline-block w-[3px] h-7 md:h-8 bg-orange-500 ml-1 animate-pulse" />
+      <span className="inline-block w-[3px] h-7 md:h-8 bg-violet-500 ml-1 animate-pulse" />
     </div>
   );
 }

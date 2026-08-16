@@ -12,12 +12,12 @@
   --brand-dark: #f8f9fb;
   --brand-card: #ffffff;
   --brand-card-border: rgba(15, 23, 42, 0.1);
-  --brand-orange: #ff5722;
-  --brand-orange-hover: #e64a19;
+  --brand-violet: #8b5cf6;
+  --brand-violet-hover: #7c3aed;
 
-  --mesh-color-1: rgba(255, 87, 34, 0.04);
-  --mesh-color-2: rgba(230, 74, 25, 0.03);
-  --mesh-color-3: rgba(255, 87, 34, 0.02);
+  --mesh-color-1: rgba(139, 92, 246, 0.04);
+  --mesh-color-2: rgba(124, 58, 237, 0.03);
+  --mesh-color-3: rgba(139, 92, 246, 0.02);
 }
 
 .dark {
@@ -32,20 +32,20 @@
   --brand-dark: #07080c;
   --brand-card: #0f1520;
   --brand-card-border: rgba(148, 163, 184, 0.14);
-  --brand-orange: #ff5722;
-  --brand-orange-hover: #e64a19;
+  --brand-violet: #8b5cf6;
+  --brand-violet-hover: #7c3aed;
 
-  --mesh-color-1: rgba(255, 87, 34, 0.08);
-  --mesh-color-2: rgba(230, 74, 25, 0.06);
-  --mesh-color-3: rgba(255, 87, 34, 0.04);
+  --mesh-color-1: rgba(139, 92, 246, 0.08);
+  --mesh-color-2: rgba(124, 58, 237, 0.06);
+  --mesh-color-3: rgba(139, 92, 246, 0.04);
 }
 
 @theme inline {
   --color-brand-dark: var(--brand-dark);
   --color-brand-card: var(--brand-card);
   --color-brand-card-border: var(--brand-card-border);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-orange-hover: var(--brand-orange-hover);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-violet-hover: var(--brand-violet-hover);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -62,8 +62,8 @@
   --animate-shimmer: shimmer 3s ease-in-out infinite;
 
   @keyframes glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(255, 87, 34, 0.2); }
-    50% { box-shadow: 0 0 40px rgba(255, 87, 34, 0.4); }
+    0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.4); }
   }
 
   @keyframes marquee {
@@ -104,21 +104,21 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ff5722, #e64a19);
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(135deg, #ff5722, #fb923c);
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.dark .gradient-text-orange {
-  background: linear-gradient(135deg, #ff5722, #fb923c);
+.dark .gradient-text-violet {
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -132,12 +132,12 @@ body {
 
 .card-gradient-border {
   position: relative;
-  background: linear-gradient(135deg, rgba(255,87,34,0.06), rgba(255,87,34,0.02));
-  border: 1px solid rgba(255,87,34,0.1);
+  background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(139,92,246,0.02));
+  border: 1px solid rgba(139,92,246,0.1);
 }
 
 .dark .card-gradient-border {
-  background: linear-gradient(135deg, rgba(255,87,34,0.1), rgba(255,87,34,0.03));
+  background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(139,92,246,0.03));
 }
 
 .card-gradient-border::before {
@@ -146,7 +146,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255,87,34,0.3), rgba(230,74,25,0.2));
+  background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(217,70,239,0.2));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -161,7 +161,7 @@ body {
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,87,34,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent);
   margin: 0 auto;
   width: 80%;
 }
@@ -175,10 +175,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-orange);
+  background: var(--brand-violet);
   border-radius: 3px;
 }
 
 ::selection {
-  background: rgba(255, 87, 34, 0.3);
+  background: rgba(139, 92, 246, 0.3);
 }

@@ -18,13 +18,13 @@ const About = () => {
       value: "1+",
       label: "Years",
       desc: "Experience",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-violet-500 to-fuchsia-500",
     },
     {
       value: "10+",
       label: "Projects",
       desc: "Completed",
-      gradient: "from-orange-500 to-orange-500",
+      gradient: "from-violet-500 to-violet-500",
     },
     {
       value: "24/7",
@@ -37,8 +37,8 @@ const About = () => {
   return (
     <section id="about" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-violet-500/5 to-violet-500/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-violet-500/5 to-violet-500/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
@@ -48,11 +48,11 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">Who I Am</p>
+          <p className="text-violet-500 font-medium tracking-widest uppercase text-sm mb-3">Who I Am</p>
           <h2 className="text-4xl md:text-5xl font-extrabold">
             About <span className="gradient-text">Me</span>
           </h2>
-          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full" />
         </motion.div>
 
         {/* Main grid */}
@@ -67,11 +67,11 @@ const About = () => {
           >
             <div className="relative group">
               {/* Gradient border glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-orange-500 to-orange-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500 via-violet-500 to-violet-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
 
               {/* Image */}
               <div className="relative w-72 md:w-80 lg:w-96 h-96 lg:h-[28rem] rounded-3xl overflow-hidden border border-brand-card-border shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-violet-500/20 via-transparent to-transparent z-10" />
                 <Image
                   src={image}
                   alt="Profile"
@@ -82,7 +82,7 @@ const About = () => {
                 <div className="absolute bottom-4 left-4 right-4 z-20">
                   <div className="bg-brand-card/80 backdrop-blur-xl border border-brand-card-border rounded-xl px-4 py-3">
                     <p className="text-sm text-text-secondary">
-                      <span className="text-orange-400 font-bold">Passionate</span> about building digital experiences
+                      <span className="text-violet-400 font-bold">Passionate</span> about building digital experiences
                     </p>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ const About = () => {
                       {item.value}
                     </h3>
                     <p className="text-xs text-text-muted mt-1 uppercase tracking-wider">{item.label}</p>
-                    <div className="mt-2 mx-auto w-8 h-0.5 bg-gradient-to-r from-orange-500/30 to-orange-500/30 rounded-full" />
+                    <div className="mt-2 mx-auto w-8 h-0.5 bg-gradient-to-r from-violet-500/30 to-violet-500/30 rounded-full" />
                     <p className="text-sm text-text-secondary mt-2 font-medium">{item.desc}</p>
                   </div>
                 </motion.div>
@@ -125,7 +125,7 @@ const About = () => {
             {/* Description */}
             <div className="space-y-4">
               <p className="text-text-secondary leading-relaxed text-lg">
-                I&apos;m a passionate <span className="text-orange-400 font-semibold">MERN Stack Developer</span> and CST student.
+                I&apos;m a passionate <span className="text-violet-400 font-semibold">MERN Stack Developer</span> and CST student.
                 I love building modern, responsive, and user-friendly web applications.
               </p>
               <p className="text-text-secondary leading-relaxed">
@@ -138,18 +138,18 @@ const About = () => {
             <div className="flex flex-wrap gap-4 pt-2">
               <button
                 onClick={handleDownload}
-                className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold shadow-lg overflow-hidden transition-all duration-300 hover:shadow-orange-500/25 hover:scale-[1.02]"
+                className="group relative px-8 py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-xl font-semibold shadow-lg overflow-hidden transition-all duration-300 hover:shadow-violet-500/25 hover:scale-[1.02]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <FaDownload />
                   Download Resume
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
 
               <a
                 href="#contact"
-                className="group px-8 py-4 border border-brand-card-border rounded-xl font-semibold text-text-secondary hover:text-orange-400 hover:border-orange-500/50 transition-all duration-300 flex items-center gap-2"
+                className="group px-8 py-4 border border-brand-card-border rounded-xl font-semibold text-text-secondary hover:text-violet-400 hover:border-violet-500/50 transition-all duration-300 flex items-center gap-2"
               >
                 Contact Me
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

@@ -46,8 +46,8 @@ const Projects = () => {
   return (
     <section id="projects" className="relative py-32 bg-background px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-orange-500/5 to-transparent blur-3xl rounded-full" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-orange-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-violet-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-violet-500/5 to-transparent blur-3xl rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
@@ -57,11 +57,11 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">My Work</p>
+          <p className="text-violet-500 font-medium tracking-widest uppercase text-sm mb-3">My Work</p>
           <h2 className="text-4xl md:text-5xl font-extrabold">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full" />
         </motion.div>
 
         {/* Info bar */}
@@ -100,8 +100,8 @@ const Projects = () => {
                 className="group relative h-full"
               >
                 {/* Gradient border wrapper */}
-                <div className="relative h-full flex flex-col rounded-3xl bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-orange-500/10 p-[1px] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-orange-500/10 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                <div className="relative h-full flex flex-col rounded-3xl bg-gradient-to-br from-violet-500/10 via-violet-500/5 to-violet-500/10 p-[1px] overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-violet-500/10 to-violet-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
 
                   <div className="relative flex h-full flex-col rounded-3xl bg-brand-card/80 border border-brand-card-border overflow-hidden backdrop-blur-sm">
                     {/* Image */}
@@ -115,14 +115,14 @@ const Projects = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
 
                       {/* Badge */}
-                      <span className="absolute top-4 left-4 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-3 py-1 text-xs font-semibold text-white shadow-lg shadow-orange-500/30">
+                      <span className="absolute top-4 left-4 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-3 py-1 text-xs font-semibold text-white shadow-lg shadow-violet-500/30">
                         Featured
                       </span>
                     </div>
 
                     {/* Content */}
                     <div className="flex flex-1 flex-col p-6">
-                      <h3 className="mb-3 text-xl font-bold text-text-primary group-hover:text-orange-400 transition-colors duration-300">
+                      <h3 className="mb-3 text-xl font-bold text-text-primary group-hover:text-violet-400 transition-colors duration-300">
                         {project.title}
                       </h3>
 
@@ -135,7 +135,7 @@ const Projects = () => {
                         {project.tags?.map((tag, i) => (
                           <span
                             key={`${project._id}-${i}-${tag}`}
-                            className="rounded-full border border-orange-500/20 bg-orange-500/5 px-3 py-1 text-xs font-medium text-orange-400"
+                            className="rounded-full border border-violet-500/20 bg-violet-500/5 px-3 py-1 text-xs font-medium text-violet-400"
                           >
                             {tag}
                           </span>
@@ -147,14 +147,14 @@ const Projects = () => {
                         <Link
                           href={project.demo}
                           target="_blank"
-                          className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 py-2.5 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]"
+                          className="rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 py-2.5 text-center text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-violet-500/25 hover:scale-[1.02]"
                         >
                           Demo
                         </Link>
 
                         <Link
                           href={`/${project._id}`}
-                          className="rounded-xl border border-orange-500/30 py-2.5 text-center text-sm font-semibold text-orange-400 transition-all hover:bg-orange-500/10 hover:border-orange-500/50"
+                          className="rounded-xl border border-violet-500/30 py-2.5 text-center text-sm font-semibold text-violet-400 transition-all hover:bg-violet-500/10 hover:border-violet-500/50"
                         >
                           Details
                         </Link>
@@ -162,7 +162,7 @@ const Projects = () => {
                         <a
                           href={project.code}
                           target="_blank"
-                          className="rounded-xl border border-brand-card-border py-2.5 text-center text-sm font-semibold text-text-secondary transition-all hover:border-orange-500/30 hover:text-orange-400"
+                          className="rounded-xl border border-brand-card-border py-2.5 text-center text-sm font-semibold text-text-secondary transition-all hover:border-violet-500/30 hover:text-violet-400"
                         >
                           Code
                         </a>
@@ -180,7 +180,7 @@ const Projects = () => {
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-orange-500/30 hover:text-orange-400 transition-all"
+            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-violet-500/30 hover:text-violet-400 transition-all"
           >
             Previous
           </button>
@@ -191,8 +191,8 @@ const Projects = () => {
               onClick={() => setPage(i + 1)}
               className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 page === i + 1
-                  ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/25"
-                  : "bg-brand-card/50 border border-brand-card-border text-text-secondary hover:border-orange-500/30 hover:text-orange-400"
+                  ? "bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-lg shadow-violet-500/25"
+                  : "bg-brand-card/50 border border-brand-card-border text-text-secondary hover:border-violet-500/30 hover:text-violet-400"
               }`}
             >
               {i + 1}
@@ -202,7 +202,7 @@ const Projects = () => {
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
-            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-orange-500/30 hover:text-orange-400 transition-all"
+            className="px-5 py-2.5 rounded-xl bg-brand-card/50 border border-brand-card-border text-sm font-medium text-text-secondary disabled:opacity-30 hover:border-violet-500/30 hover:text-violet-400 transition-all"
           >
             Next
           </button>

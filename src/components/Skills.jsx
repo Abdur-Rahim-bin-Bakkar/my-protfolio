@@ -6,9 +6,9 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      gradient: 'from-orange-500 to-red-500',
-      bgGlow: 'bg-orange-500/5',
-      borderGlow: 'border-orange-500/20',
+      gradient: 'from-violet-500 to-fuchsia-500',
+      bgGlow: 'bg-violet-500/5',
+      borderGlow: 'border-violet-500/20',
       skills: [
         { name: 'HTML', level: 95 },
         { name: 'CSS', level: 90 },
@@ -98,7 +98,7 @@ const Skills = () => {
 
     return (
       <span
-        className={`bg-gradient-to-br ${initialGradient[name] || 'from-orange-500 to-orange-600'} flex items-center justify-center font-bold text-white ${className}`}
+        className={`bg-gradient-to-br ${initialGradient[name] || 'from-violet-500 to-fuchsia-500'} flex items-center justify-center font-bold text-white ${className}`}
       >
         {name}
       </span>
@@ -129,8 +129,8 @@ const Skills = () => {
   return (
     <section id="skills" className="relative py-32 bg-background overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-4 h-4 border border-orange-500/20 rounded-full animate-float" />
-      <div className="absolute bottom-20 left-20 w-3 h-16 bg-gradient-to-b from-orange-500/10 to-transparent rounded-full animate-float-delayed" />
+      <div className="absolute top-20 right-20 w-4 h-4 border border-violet-500/20 rounded-full animate-float" />
+      <div className="absolute bottom-20 left-20 w-3 h-16 bg-gradient-to-b from-violet-500/10 to-transparent rounded-full animate-float-delayed" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Heading */}
@@ -140,11 +140,11 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">What I Know</p>
+          <p className="text-violet-500 font-medium tracking-widest uppercase text-sm mb-3">What I Know</p>
           <h2 className="text-4xl md:text-5xl font-extrabold">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full" />
         </motion.div>
 
         {/* Scrolling/Grid Tech Icons */}
@@ -163,13 +163,13 @@ const Skills = () => {
               className="group flex flex-col items-center"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-orange-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl border border-brand-card-border bg-gradient-to-br from-brand-card to-brand-card/50 dark:from-brand-card dark:to-brand-card/40 flex items-center justify-center p-3.5 shadow-md group-hover:border-orange-500/40 group-hover:shadow-orange-500/20 group-hover:shadow-lg transition-all duration-300 cursor-default" title={icon.name}>
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/30 to-violet-500/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-2xl border border-brand-card-border bg-gradient-to-br from-brand-card to-brand-card/50 dark:from-brand-card dark:to-brand-card/40 flex items-center justify-center p-3.5 shadow-md group-hover:border-violet-500/40 group-hover:shadow-violet-500/20 group-hover:shadow-lg transition-all duration-300 cursor-default" title={icon.name}>
                   {renderLogo(icon.name, "w-full h-full")}
                 </div>
-                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-7 h-0.5 rounded-full bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-7 h-0.5 rounded-full bg-gradient-to-r from-violet-500/0 via-violet-500/70 to-violet-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <p className="mt-3 text-center text-xs font-medium text-text-secondary group-hover:text-orange-400 transition-colors duration-300">
+              <p className="mt-3 text-center text-xs font-medium text-text-secondary group-hover:text-violet-400 transition-colors duration-300">
                 {icon.name}
               </p>
             </motion.div>

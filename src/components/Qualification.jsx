@@ -16,7 +16,7 @@ const Qualification = () => {
       institute: "Tangail Polytechnic Institute",
       period: "2023 - Present",
       icon: <FaGraduationCap />,
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-violet-500 to-fuchsia-500",
       description:
         "Currently studying Computer Science & Technology and building full-stack projects.",
     },
@@ -41,7 +41,7 @@ const Qualification = () => {
       institute: "Barai Bari AKU Institution",
       period: "2016",
       icon: <FaSchool />,
-      gradient: "from-orange-500 to-orange-500",
+      gradient: "from-violet-500 to-violet-500",
       description: "Completed Primary education successfully.",
     },
     {
@@ -49,7 +49,7 @@ const Qualification = () => {
       institute: "Barai Bari Primary School",
       period: "2010",
       icon: <FaSchool />,
-      gradient: "from-orange-500 to-orange-500",
+      gradient: "from-violet-500 to-violet-500",
       description: "Started educational journey with curiosity.",
     },
   ];
@@ -57,8 +57,8 @@ const Qualification = () => {
   return (
     <section id="qualifications" className="relative py-32 bg-background overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-[120px] rounded-full" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-500/5 to-orange-500/5 blur-[120px] rounded-full" />
+      <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-violet-500/5 to-violet-500/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-violet-500/5 to-violet-500/5 blur-[120px] rounded-full" />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* Heading */}
@@ -68,11 +68,11 @@ const Qualification = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-orange-500 font-medium tracking-widest uppercase text-sm mb-3">My Journey</p>
+          <p className="text-violet-500 font-medium tracking-widest uppercase text-sm mb-3">My Journey</p>
           <h2 className="text-4xl md:text-5xl font-extrabold">
             Qualification <span className="gradient-text">Timeline</span>
           </h2>
-          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-orange-500 to-orange-500 rounded-full" />
+          <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full" />
         </motion.div>
 
         {/* Timeline */}
@@ -84,7 +84,7 @@ const Qualification = () => {
               whileInView={{ height: "100%" }}
               viewport={{ once: true }}
               transition={{ duration: 2, ease: "easeInOut" }}
-              className="w-full bg-gradient-to-b from-orange-500 via-orange-500 to-orange-500 rounded-full"
+              className="w-full bg-gradient-to-b from-violet-500 via-violet-500 to-violet-500 rounded-full"
             />
           </div>
 
@@ -105,14 +105,14 @@ const Qualification = () => {
                   {/* LEFT SIDE (desktop) */}
                   <div className={`hidden md:block ${isLeft ? "text-right" : ""}`}>
                     {isLeft && (
-                      <div className="ml-auto max-w-md p-6 rounded-2xl bg-brand-card/40 border border-brand-card-border backdrop-blur-sm hover:border-orange-500/20 transition-all duration-300">
+                      <div className="ml-auto max-w-md p-6 rounded-2xl bg-brand-card/40 border border-brand-card-border backdrop-blur-sm hover:border-violet-500/20 transition-all duration-300">
                         <div className={`w-12 h-12 ml-auto flex items-center justify-center text-white text-lg rounded-xl bg-gradient-to-r ${item.gradient} shadow-lg`}>
                           {item.icon}
                         </div>
                         <h3 className="text-lg font-bold mt-4 text-text-primary">
                           {item.title}
                         </h3>
-                        <p className="text-orange-400 text-sm mt-1 font-medium">
+                        <p className="text-violet-400 text-sm mt-1 font-medium">
                           {item.institute}
                         </p>
                         <p className="text-text-secondary mt-3 text-sm leading-relaxed">
@@ -132,21 +132,21 @@ const Qualification = () => {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, type: "spring" }}
-                      className={`w-5 h-5 rounded-full bg-gradient-to-r ${item.gradient} border-[3px] border-background shadow-lg shadow-orange-500/20`}
+                      className={`w-5 h-5 rounded-full bg-gradient-to-r ${item.gradient} border-[3px] border-background shadow-lg shadow-violet-500/20`}
                     />
                   </div>
 
                   {/* RIGHT SIDE (desktop) */}
                   <div className={`hidden md:block ${!isLeft ? "text-left" : ""}`}>
                     {!isLeft && (
-                      <div className="mr-auto max-w-md p-6 rounded-2xl bg-brand-card/40 border border-brand-card-border backdrop-blur-sm hover:border-orange-500/20 transition-all duration-300">
+                      <div className="mr-auto max-w-md p-6 rounded-2xl bg-brand-card/40 border border-brand-card-border backdrop-blur-sm hover:border-violet-500/20 transition-all duration-300">
                         <div className={`w-12 h-12 flex items-center justify-center text-white text-lg rounded-xl bg-gradient-to-r ${item.gradient} shadow-lg`}>
                           {item.icon}
                         </div>
                         <h3 className="text-lg font-bold mt-4 text-text-primary">
                           {item.title}
                         </h3>
-                        <p className="text-orange-400 text-sm mt-1 font-medium">
+                        <p className="text-violet-400 text-sm mt-1 font-medium">
                           {item.institute}
                         </p>
                         <p className="text-text-secondary mt-3 text-sm leading-relaxed">
@@ -163,7 +163,7 @@ const Qualification = () => {
                   <div className="md:hidden">
                     <div className="relative pl-8">
                       {/* Mobile line */}
-                      <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-500/50 to-orange-500/50 rounded-full" />
+                      <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-violet-500/50 to-violet-500/50 rounded-full" />
                       <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
@@ -177,7 +177,7 @@ const Qualification = () => {
                         <h3 className="text-base font-bold mt-3 text-text-primary">
                           {item.title}
                         </h3>
-                        <p className="text-orange-400 text-xs mt-1 font-medium">
+                        <p className="text-violet-400 text-xs mt-1 font-medium">
                           {item.institute}
                         </p>
                         <p className="text-text-secondary mt-2 text-xs leading-relaxed">

@@ -22,11 +22,11 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-brand-card-border bg-gradient-to-b from-brand-dark to-brand-dark">
       {/* Gradient top line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
 
       {/* Background glow */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-orange-500/3 via-orange-500/3 to-transparent blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-t from-orange-500/5 to-transparent blur-3xl rounded-full" />
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-violet-500/3 via-violet-500/3 to-transparent blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-t from-violet-500/5 to-transparent blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
@@ -39,7 +39,7 @@ const Footer = () => {
           >
             <h2 className="text-3xl font-black mb-4">
               Abdur{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 to-violet-500 bg-clip-text text-transparent">
                 Rahim
               </span>
             </h2>
@@ -57,7 +57,7 @@ const Footer = () => {
                   key={i}
                   href={social.href}
                   target="_blank"
-                  className="p-3 rounded-xl bg-brand-card/50 border border-brand-card-border text-text-secondary hover:text-orange-400 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300"
+                  className="p-3 rounded-xl bg-brand-card/50 border border-brand-card-border text-text-secondary hover:text-violet-400 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all duration-300"
                 >
                   <span className="text-lg">{social.icon}</span>
                 </a>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-sm text-text-secondary transition-all duration-300 hover:text-orange-400 hover:translate-x-1"
+                  className="block text-sm text-text-secondary transition-all duration-300 hover:text-violet-400 hover:translate-x-1"
                 >
                   {item}
                 </a>
@@ -104,7 +104,7 @@ const Footer = () => {
                 "Responsive Design",
               ].map((service, i) => (
                 <p key={i} className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-orange-500/50" />
+                  <span className="w-1 h-1 rounded-full bg-violet-500/50" />
                   {service}
                 </p>
               ))}
@@ -126,7 +126,7 @@ const Footer = () => {
             </div>
             <a
               href="#contact"
-              className="inline-block mt-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold transition-all hover:shadow-lg hover:shadow-orange-500/25"
+              className="inline-block mt-4 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-semibold transition-all hover:shadow-lg hover:shadow-violet-500/25"
             >
               Hire Me
             </a>
@@ -134,7 +134,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-12 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent" />
+        <div className="my-12 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -143,12 +143,12 @@ const Footer = () => {
           </p>
 
           <p className="text-sm text-text-muted flex items-center gap-1">
-            Built with <FaHeart className="text-orange-500 text-xs" /> using Next.js
+            Built with <FaHeart className="text-violet-500 text-xs" /> using Next.js
           </p>
 
           <button
             onClick={scrollTop}
-            className="group p-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-orange-500/25 hover:scale-110"
+            className="group p-3 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-lg transition-all duration-300 hover:shadow-violet-500/25 hover:scale-110"
           >
             <FaArrowUp className="group-hover:-translate-y-0.5 transition-transform" />
           </button>
