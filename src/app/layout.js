@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,12 +28,14 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <CustomCursor />
-          <Navbar></Navbar>
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
+          <SmoothScroll>
+            <CustomCursor />
+            <Navbar></Navbar>
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
