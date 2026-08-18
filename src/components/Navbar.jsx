@@ -70,10 +70,10 @@ const Navbar = () => {
           className="flex items-center gap-2"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full blur-sm opacity-60" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-              src="https://i.ibb.co.com/mVF44WLp/Chat-GPT-Image-May-9-2026-10-01-55-AM.png"
+             <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-violet-500 rounded-full blur-sm opacity-60" />
+             {/* eslint-disable-next-line @next/next/no-img-element */}
+             <img
+              src="/me.png"
               alt="logo"
               className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-violet-500/30 object-cover"
             />
